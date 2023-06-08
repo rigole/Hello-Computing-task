@@ -1,0 +1,31 @@
+.main-div{
+    margin-top: 12rem;
+}
+.title {
+    font-family: 'Comfortaa';
+    text-align: center;
+    font-size: 35px;
+}
+.input-user{
+    width: 25%;
+}
+
+.form-calculator{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.units{
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-convert{
+    margin-top: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.calculation-button{
+    width: 400px;
+}

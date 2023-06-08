@@ -1,0 +1,47 @@
+
+<div class="main-div">
+  <h1 class="title">Welcome to the calculator</h1>
+  <form class="form-calculator" action="">
+    <p>What do you want to Calculate?</p>
+    <mat-form-field>
+      <mat-select [(value)] = "selectedOperations">
+        <mat-option *ngFor="let operation of oprations" [value]="operation">
+          {{ operation.name }}
+        </mat-option>
+       
+      </mat-select>
+    </mat-form-field>
+    <p> Now Choose your figure</p>
+    <mat-form-field>
+      <mat-select [(value)] = "figures">
+        <mat-label></mat-label>
+        <mat-option *ngFor="let figure of figures" [value]="figures">
+            {{ figure.name }}
+        </mat-option>
+       
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="input-user">
+      <input required matInput placeholder="Please enter a number">
+    </mat-form-field>
+    <button class="calculation-button" mat-raised-button color="primary">Calculate</button>
+    <p></p>
+    <p>
+      If you want to convert the answer into an other unit, Choose it 
+    </p>
+      <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+      <mat-form-field>
+      <mat-select #myUnits [(value)] = "units" (selectionChange) = "OpenSel()">
+        <mat-label></mat-label>
+        <mat-option  *ngFor="let unit of units" [value]="units">
+            {{unit.name}}
+        </mat-option>
+      </mat-select>
+     
+    </mat-form-field>
+     
+  
+  <button class="calculation-button" mat-raised-button color="primary">Convert</button>
+  </form>
+</div>
+<router-outlet></router-outlet>
