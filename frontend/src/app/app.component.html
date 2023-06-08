@@ -13,9 +13,9 @@
     </mat-form-field>
     <p> Now Choose your figure</p>
     <mat-form-field>
-      <mat-select [(value)] = "figures">
+      <mat-select [(value)] = "selectedFigure" (selectionChange) = "OpenSelect($event)">
         <mat-label></mat-label>
-        <mat-option *ngFor="let figure of figures" [value]="figures">
+        <mat-option *ngFor="let figure of figures" [value]="figure.name">
             {{ figure.name }}
         </mat-option>
        
@@ -31,14 +31,19 @@
     </p>
       <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
       <mat-form-field>
-      <mat-select #myUnits [(value)] = "units" (selectionChange) = "OpenSel()">
+      <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
         <mat-label></mat-label>
-        <mat-option  *ngFor="let unit of units" [value]="units">
+        <mat-option  *ngFor="let unit of units" [value]="unit.name">
             {{unit.name}}
         </mat-option>
+        
       </mat-select>
-     
+    
     </mat-form-field>
+  
+    <div *ngIf="units.name === 'decimeter'">
+      <p>Hello Placide</p>
+    </div>
      
   
   <button class="calculation-button" mat-raised-button color="primary">Convert</button>

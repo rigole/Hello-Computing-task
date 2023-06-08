@@ -1,5 +1,6 @@
 import { Component, ViewChild,ElementRef } from '@angular/core';
 import { ApiServiceService } from 'src/services';
+import { FormGroup } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
 
 
@@ -19,9 +20,14 @@ export class AppComponent {
   title = 'frontend';
   figures:any;
   units:any;
-  selectedUnit:any;
+  selectedUnit:string;
+  selectedFigure:string;
+  
  
-  constructor(private apiservice: ApiServiceService){}
+  constructor(private apiservice: ApiServiceService){
+    this.selectedUnit = "meter";
+    this.selectedFigure = "rectangle"
+  }
 
   ngOnInit(): void {
     this.apiservice.getFigures().subscribe(res => {
@@ -31,6 +37,8 @@ export class AppComponent {
     this.apiservice.getUnits().subscribe(res => {
       this.units = res;
     })
+
+    
 
     
   }
@@ -43,12 +51,17 @@ export class AppComponent {
 
    selectedOperations = this.oprations[1]; 
 
-  @ViewChild('myUnits') myUnit!: ElementRef ;
+
   
   
-  OpenSel(){
-    this.selectedUnit = this.myUnit;
-    console.log( this.selectedUnit);
+  OpenSel(event:any){
+    this.selectedUnit = event.value;
+    console.log(this.selectedUnit);
+  }
+
+  OpenSelect(event:any){
+    this.selectedFigure = event.value;
+
   }
 
    
