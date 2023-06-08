@@ -6,9 +6,7 @@
     text-align: center;
     font-size: 35px;
 }
-.input-user{
-    width: 25%;
-}
+
 
 .form-calculator{
     align-items: center;
@@ -28,4 +26,16 @@
 }
 .calculation-button{
     width: 400px;
+}
+
+.entryNumber{
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-between;
+}
+.input-user{
+    margin: 1rem;
+    width: 500px;
 }

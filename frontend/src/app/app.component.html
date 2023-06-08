@@ -24,17 +24,40 @@
 
 
     <div class="entryNumber">
-      <mat-form-field class="input-user">
-        <input required matInput placeholder="Please enter a number">
+
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle'; ">
+        <input required matInput placeholder="Please enter the length number">
       </mat-form-field>
-      <mat-form-field class="input-user">
-        <input required matInput placeholder="Please enter a number">
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle';">
+        <input required matInput placeholder="Please enter the width">
+      </mat-form-field>
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'square';">
+        <input required matInput placeholder="Please enter the side">
+      </mat-form-field>
+
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'circle';">
+        <input required matInput placeholder="Please the radius">
       </mat-form-field>
 
 
-      <mat-form-field class="input-user">
-        <input required matInput placeholder="Please enter a number">
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
+        <input required matInput placeholder="Please the Base">
       </mat-form-field>
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
+        <input required matInput placeholder="Please the Height">
+      </mat-form-field>
+
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
+        <input required matInput placeholder="Please enter the first side">
+      </mat-form-field>
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
+        <input required matInput placeholder="Please enter the second side">
+      </mat-form-field>
+      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
+        <input required matInput placeholder="Please enter the third side">
+      </mat-form-field>
+
+      
 
       
     </div>
