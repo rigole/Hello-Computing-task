@@ -4,7 +4,7 @@
   <form class="form-calculator" action="">
     <p>What do you want to Calculate?</p>
     <mat-form-field>
-      <mat-select [(value)] = "selectedOperations">
+      <mat-select #operatins [(value)] = "selectedOperations">
         <mat-option *ngFor="let operation of oprations" [value]="operation">
           {{ operation.name }}
         </mat-option>
@@ -21,26 +21,51 @@
        
       </mat-select>
     </mat-form-field>
-    <mat-form-field class="input-user">
-      <input required matInput placeholder="Please enter a number">
-    </mat-form-field>
+
+
+    <div class="entryNumber">
+      <mat-form-field class="input-user">
+        <input required matInput placeholder="Please enter a number">
+      </mat-form-field>
+      <mat-form-field class="input-user">
+        <input required matInput placeholder="Please enter a number">
+      </mat-form-field>
+
+
+      <mat-form-field class="input-user">
+        <input required matInput placeholder="Please enter a number">
+      </mat-form-field>
+
+      
+    </div>
+
+
+
+    
     <button class="calculation-button" mat-raised-button color="primary">Calculate</button>
     <p></p>
     <p>
       If you want to convert the answer into an other unit, Choose it 
     </p>
       <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
-      <mat-form-field>
-      <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
-        <mat-label></mat-label>
-        <mat-option  *ngFor="let unit of units" [value]="unit.name">
-            {{unit.name}}
-        </mat-option>
-        
-      </mat-select>
-    
-    </mat-form-field>
-  
+
+        <mat-form-field  *ngIf="selectedOperations.name == 'Perimeter';">
+          <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
+            <mat-label></mat-label>
+            <mat-option  *ngFor="let unit of units" [value]="unit.name">
+                {{unit.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="selectedOperations.name == 'Area';">
+        <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
+          <mat-label></mat-label>
+          <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+              {{unitArea.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     <div *ngIf="units.name === 'decimeter'">
       <p>Hello Placide</p>
     </div>

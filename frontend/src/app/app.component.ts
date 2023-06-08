@@ -20,13 +20,16 @@ export class AppComponent {
   title = 'frontend';
   figures:any;
   units:any;
+  unitsArea:any;
   selectedUnit:string;
   selectedFigure:string;
+  selectedAreaUnit: string;
   
  
   constructor(private apiservice: ApiServiceService){
     this.selectedUnit = "meter";
     this.selectedFigure = "rectangle"
+    this.selectedAreaUnit = "meter square"
   }
 
   ngOnInit(): void {
@@ -37,6 +40,12 @@ export class AppComponent {
     this.apiservice.getUnits().subscribe(res => {
       this.units = res;
     })
+
+    this.apiservice.getAreaUnits().subscribe(res => {
+      this.unitsArea = res;
+    })
+
+    
 
     
 
@@ -57,11 +66,16 @@ export class AppComponent {
   OpenSel(event:any){
     this.selectedUnit = event.value;
     console.log(this.selectedUnit);
+
+
   }
 
   OpenSelect(event:any){
     this.selectedFigure = event.value;
+  }
 
+  OpenSelectArea(event:any){
+    this.selectedAreaUnit = event.value
   }
 
    

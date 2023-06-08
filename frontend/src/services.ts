@@ -13,7 +13,11 @@ export class ApiServiceService{
     }
     
     getUnits(){
-        return this.http.get("http://localhost:8000/units")
+        return this.http.get("http://localhost:8000/units");
+    }
+
+    getAreaUnits(){
+        return this.http.get("http://localhost:8000/areaunits");
     }
 }
 

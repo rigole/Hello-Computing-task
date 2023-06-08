@@ -1,5 +1,6 @@
 const units  = require("./Model/units");
 const figures = require("./Model/figures");
+const areaUnits = require("./Model/areaUnits");
 let express = require('express')
 const bodyParser = require("body-parser")
 const cors = require("cors")
@@ -30,6 +31,9 @@ app.get('/figures', (req, res) => {
   res.json(figures);
 });
 
+app.get('/areaunits', (req, res) => {
+  res.json(areaUnits);
+});
 
 
   app.use(function (err, req, res, next) {
