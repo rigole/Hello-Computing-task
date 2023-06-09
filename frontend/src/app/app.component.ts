@@ -35,6 +35,7 @@ export class AppComponent {
   firstSide: string;
   secondSide: string;
   thirdSide : string;
+  rectangleValue:string;
 
   
  
@@ -53,6 +54,7 @@ export class AppComponent {
     this.firstSide = "";
     this.secondSide = "";
     this.thirdSide = "";
+    this.rectangleValue = "";
 
   }
 
@@ -78,9 +80,6 @@ export class AppComponent {
 
    selectedOperations = this.oprations[1]; 
 
-
-  
-  
   OpenSel(event:any){
     this.selectedUnit = event.value;
   }
@@ -97,9 +96,66 @@ export class AppComponent {
   OpenSelectArea_(event:any){
     this.selectedAreaUnit2 = event.value
   }
+  
 
 
+  ConversionRectangle(){
+   
+    //console.log(this.rectangleValue)
+    const rectangleNumber = Number(this.RectangleCalculus()) ;
+    //const test = this.RectangleCalculus()
+    //console.log(test)
+    if(isNaN(rectangleNumber)){
+      return "your need to calculate area or perimeter before converting";
+    }
+    else{
+      /*if(this.selectedUnit == "meter" && this.selectedUnit2 =="meter"){
+        return rectangleNumber;
+      }*/
+      if (this.selectedUnit == "meter" && this.selectedUnit2 =="decimeter"){
+        return rectangleNumber * 10 + " decimeters";
+      }
+      else if (this.selectedUnit == "meter" && this.selectedUnit2 =="centimeter" ){
+        return rectangleNumber * 100 + " centimeters";;
+      }
+      else if (this.selectedUnit == "meter" && this.selectedUnit2 =="kilometer" ){
+        return rectangleNumber / 1000 + " kilometers";
+      } 
+      else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="meter" ){
+        return rectangleNumber / 100 + " meters";
+      }
+      else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="decimeter" ){
+        return rectangleNumber / 10 + " decimeters";
+      }
+      else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="kilometer" ){
+        return rectangleNumber / 100000 + " kilometers";
+      }
+      else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="meter" ){
+        return rectangleNumber / 10 + " meters";
+      }
+      else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="centimer" ){
+        return rectangleNumber * 10 + " centimeters";
+      }
+      else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="kilometer" ){
+        return rectangleNumber / 10000 + " kilometers";
+      }
+      else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="meter" ){
+        return rectangleNumber * 1000 + " meters";
+      }
+      else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="centimeter" ){
+        return rectangleNumber * 100000 + " centimeters";
+      }
+      else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="decimeter" ){
+        return rectangleNumber *10000 + " decimeters";
+      }
+      else{
+        return rectangleNumber;
+      }
+    }
 
+  }
+
+  Conversion(){}
   submission(event:any){}
   TrianglePerimeterCalculus(){
     this.firstSide = (<HTMLInputElement>document.getElementById("firstside")).value;
