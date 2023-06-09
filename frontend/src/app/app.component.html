@@ -1,10 +1,10 @@
 
 <div class="main-div">
   <h1 class="title">Welcome to the calculator</h1>
-  <form class="form-calculator" action="">
+  <form class="form-calculator">
     <p>What do you want to Calculate?</p>
     <mat-form-field>
-      <mat-select #operatins [(value)] = "selectedOperations">
+      <mat-select id="operatins" #operatins [(value)] = "selectedOperations">
         <mat-option *ngFor="let operation of oprations" [value]="operation">
           {{ operation.name }}
         </mat-option>
@@ -24,40 +24,62 @@
 
 
     <div class="entryNumber">
+      <div *ngIf="selectedFigure == 'rectangle'; ">
+        <mat-form-field class="input-user">
+          <input required type="text" id="length" name="length" matInput  #length  placeholder="Please enter the length number">
+        </mat-form-field>
+        
+        <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle';">
+          <input required type="text" id="width" matInput placeholder="Please enter the width">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="RectangleCalculus()">Calculate</button>
+        <h3>{{RectangleCalculus()}}</h3>
+      </div>
 
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle'; ">
-        <input required matInput placeholder="Please enter the length number">
-      </mat-form-field>
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle';">
-        <input required matInput placeholder="Please enter the width">
-      </mat-form-field>
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'square';">
-        <input required matInput placeholder="Please enter the side">
-      </mat-form-field>
+      <div *ngIf="selectedFigure == 'square';">
+        <mat-form-field class="input-user" >
+          <input required type="text" id="side" matInput placeholder="Please enter the side">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="SquareCalculus()">Calculate</button>
+        <h3>{{ SquareCalculus() }}</h3>
+      </div>
 
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'circle';">
-        <input required matInput placeholder="Please the radius">
-      </mat-form-field>
+      <div *ngIf="selectedFigure == 'circle';">
+        <mat-form-field class="input-user" >
+          <input required type="text" matInput placeholder="Please the radius">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+      </div>
+
+      <div *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
+        <mat-form-field class="input-user" >
+          <input required type="number" matInput placeholder="Please the Base">
+        </mat-form-field>
+        <mat-form-field class="input-user">
+          <input required type="number" matInput placeholder="Please the Height">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+      </div>
+
+      <div *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
+        <mat-form-field class="input-user" >
+          <input required type="number" matInput placeholder="Please enter the first side">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+      </div>
 
 
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
-        <input required matInput placeholder="Please the Base">
-      </mat-form-field>
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
-        <input required matInput placeholder="Please the Height">
-      </mat-form-field>
+    
 
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
-        <input required matInput placeholder="Please enter the first side">
-      </mat-form-field>
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
-        <input required matInput placeholder="Please enter the second side">
-      </mat-form-field>
-      <mat-form-field class="input-user" *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
-        <input required matInput placeholder="Please enter the third side">
-      </mat-form-field>
-
-      
+      <div  *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
+        <mat-form-field class="input-user">
+          <input required type="number" matInput placeholder="Please enter the second side">
+        </mat-form-field>
+        <mat-form-field class="input-user">
+          <input required type="number" matInput placeholder="Please enter the third side">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+      </div>
 
       
     </div>
@@ -65,7 +87,7 @@
 
 
     
-    <button class="calculation-button" mat-raised-button color="primary">Calculate</button>
+   
     <p></p>
     <p>
       If you want to convert the answer into an other unit, Choose it 

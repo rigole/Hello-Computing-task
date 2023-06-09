@@ -24,12 +24,20 @@ export class AppComponent {
   selectedUnit:string;
   selectedFigure:string;
   selectedAreaUnit: string;
+  length: string;
+  width:string;
+  side: string;
+
   
  
   constructor(private apiservice: ApiServiceService){
     this.selectedUnit = "meter";
     this.selectedFigure = "rectangle"
     this.selectedAreaUnit = "meter square"
+    this.length = "";
+    this.width = "";
+    this.side = ""
+
   }
 
   ngOnInit(): void {
@@ -68,6 +76,63 @@ export class AppComponent {
     console.log(this.selectedUnit);
 
 
+  }
+
+  submission(event:any){
+   
+    
+  }
+
+  SquareCalculus(){
+    this.side = (<HTMLInputElement>document.getElementById("side")).value;
+
+    const sideNumber = Number(this.side);
+    if (this.side == "" || isNaN(sideNumber)) {
+      return "Please insert a number for side"
+    } else {
+        if (this.selectedOperations.name == "Area") {
+          if (sideNumber == 0 || sideNumber < 0) {
+            return " the side cannot be negative or equal to 0";
+          } else {
+            return sideNumber * sideNumber;
+          }
+        } else {
+          if(sideNumber == 0 || sideNumber < 0){
+            return " the with and the length cannot be negative or equal to 0";
+          }
+          else{
+            return sideNumber * 4;
+          }
+        }
+    }
+  }
+  
+  RectangleCalculus(){
+    this.length = (<HTMLInputElement>document.getElementById("length")).value;
+    this.width = (<HTMLInputElement>document.getElementById("width")).value;
+    const widthNumber = Number(this.width);
+    const lengthNumber = Number(this.length);
+   
+   if(this.length == "" || this.width =="" || isNaN(widthNumber) || isNaN(lengthNumber)){
+      return "please insert a number for width and a number for length";
+   } else {
+        if(this.selectedOperations.name == "Area"){
+          if(widthNumber == 0 || lengthNumber == 0 || widthNumber < 0 || lengthNumber < 0){
+            return " the with and the length cannot be negative or equal to 0";
+          }
+          else{
+            return widthNumber * lengthNumber;
+          }
+                  
+        } else{
+          if(widthNumber == 0 || lengthNumber == 0 || widthNumber < 0 || lengthNumber < 0){
+            return " the with and the length cannot be negative or equal to 0";
+          }
+          else{
+            return (widthNumber + lengthNumber) * 2;
+          }
+      }
+    }  
   }
 
   OpenSelect(event:any){
