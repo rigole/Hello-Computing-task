@@ -46,42 +46,36 @@
 
       <div *ngIf="selectedFigure == 'circle';">
         <mat-form-field class="input-user" >
-          <input required type="text" matInput placeholder="Please the radius">
+          <input required type="text" id="radius" matInput placeholder="Please the radius">
         </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="CircleCalculus()">Calculate</button>
+        <h3>{{ CircleCalculus() }}</h3>
       </div>
 
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
         <mat-form-field class="input-user" >
-          <input required type="number" matInput placeholder="Please the Base">
+          <input required type="text" id="base" matInput placeholder="Please the Base">
         </mat-form-field>
         <mat-form-field class="input-user">
-          <input required type="number" matInput placeholder="Please the Height">
+          <input required type="text" id="height" matInput placeholder="Please the Height">
         </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TriangleAreaCalculus()">Calculate</button>
+        <h3>{{ TriangleAreaCalculus() }}</h3>
       </div>
 
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
         <mat-form-field class="input-user" >
-          <input required type="number" matInput placeholder="Please enter the first side">
-        </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
-      </div>
-
-
-    
-
-      <div  *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
-        <mat-form-field class="input-user">
-          <input required type="number" matInput placeholder="Please enter the second side">
+          <input required type="text" id="firstside" matInput placeholder="Please enter the first side">
         </mat-form-field>
         <mat-form-field class="input-user">
-          <input required type="number" matInput placeholder="Please enter the third side">
+          <input required type="text" id="secondside" matInput placeholder="Please enter the second side">
         </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="submission($event)">Calculate</button>
+        <mat-form-field class="input-user">
+          <input required type="text" id="thirdside" matInput placeholder="Please enter the third side">
+        </mat-form-field>
+        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TrianglePerimeterCalculus()">Calculate</button>
+        <h3>{{ TrianglePerimeterCalculus() }}</h3>
       </div>
-
-      
     </div>
 
 

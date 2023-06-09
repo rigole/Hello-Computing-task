@@ -27,6 +27,12 @@ export class AppComponent {
   length: string;
   width:string;
   side: string;
+  radius: string;
+  base: string;
+  height: string;
+  firstSide: string;
+  secondSide: string;
+  thirdSide : string;
 
   
  
@@ -36,7 +42,13 @@ export class AppComponent {
     this.selectedAreaUnit = "meter square"
     this.length = "";
     this.width = "";
-    this.side = ""
+    this.side = "";
+    this.radius = "";
+    this.base = "";
+    this.height = "";
+    this.firstSide = "";
+    this.secondSide = "";
+    this.thirdSide = "";
 
   }
 
@@ -52,12 +64,6 @@ export class AppComponent {
     this.apiservice.getAreaUnits().subscribe(res => {
       this.unitsArea = res;
     })
-
-    
-
-    
-
-    
   }
   
    oprations = [
@@ -78,10 +84,72 @@ export class AppComponent {
 
   }
 
-  submission(event:any){
-   
-    
+  submission(event:any){}
+  TrianglePerimeterCalculus(){
+    this.firstSide = (<HTMLInputElement>document.getElementById("firstside")).value;
+    this.secondSide = (<HTMLInputElement>document.getElementById("secondside")).value;
+    this.thirdSide= (<HTMLInputElement>document.getElementById("thirdside")).value;
+
+    const firstSideNumber = Number( this.firstSide);
+    const secondSideNumber = Number(this.secondSide);
+    const thirdSideNumber = Number(this.thirdSide);
+
+    if(this.firstSide == "" ||  this.secondSide =="" || this.thirdSide=="" || isNaN(firstSideNumber) || isNaN(secondSideNumber) || isNaN(thirdSideNumber)){
+      return "please insert a number for each side";
+   } else {
+          if(firstSideNumber == 0 || secondSideNumber == 0 || thirdSideNumber == 0  ||  firstSideNumber < 0 || secondSideNumber < 0 || thirdSideNumber < 0){
+            return " A side cannot be negative or equal to 0";
+          }
+          else{
+            return firstSideNumber + secondSideNumber + thirdSideNumber;
+          }          
+      }  
   }
+
+  
+
+  TriangleAreaCalculus(){
+    this.base = (<HTMLInputElement>document.getElementById("base")).value;
+    this.height = (<HTMLInputElement>document.getElementById("height")).value;
+    const baseNumber = Number(this.base);
+    const heightNumber = Number(this.height);
+
+    if(this.base == "" || this.height =="" || isNaN(baseNumber) || isNaN(heightNumber)){
+      return "please insert a number for base and a number for height";
+   } else {
+          if(baseNumber == 0 || heightNumber == 0 || baseNumber < 0 || heightNumber < 0){
+            return " the with and the length cannot be negative or equal to 0";
+          }
+          else{
+            return baseNumber * heightNumber;
+          }          
+      }  
+  }
+
+  CircleCalculus(){
+    this.radius = (<HTMLInputElement>document.getElementById("radius")).value;
+    
+    const radiusNumber = Number(this.radius);
+    if (this.radius == "" || isNaN(radiusNumber)) {
+      return "Please insert a number for side"
+    } else {
+        if (this.selectedOperations.name == "Area") {
+          if (radiusNumber == 0 || radiusNumber < 0) {
+            return " the side cannot be negative or equal to 0";
+          } else {
+            return (2 * radiusNumber * Math.PI);
+          }
+        } else {
+          if(radiusNumber == 0 || radiusNumber < 0){
+            return " the with and the length cannot be negative or equal to 0";
+          }
+          else{
+            return (radiusNumber * radiusNumber * Math.PI);
+          }
+        }
+    }
+  }
+  
 
   SquareCalculus(){
     this.side = (<HTMLInputElement>document.getElementById("side")).value;
