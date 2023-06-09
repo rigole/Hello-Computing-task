@@ -22,8 +22,10 @@ export class AppComponent {
   units:any;
   unitsArea:any;
   selectedUnit:string;
+  selectedUnit2:string;
   selectedFigure:string;
   selectedAreaUnit: string;
+  selectedAreaUnit2: string;
   length: string;
   width:string;
   side: string;
@@ -38,8 +40,10 @@ export class AppComponent {
  
   constructor(private apiservice: ApiServiceService){
     this.selectedUnit = "meter";
+    this.selectedUnit2 = "decimeter";
     this.selectedFigure = "rectangle"
     this.selectedAreaUnit = "meter square"
+    this.selectedAreaUnit2 = "decimeter square"
     this.length = "";
     this.width = "";
     this.side = "";
@@ -79,10 +83,22 @@ export class AppComponent {
   
   OpenSel(event:any){
     this.selectedUnit = event.value;
-    console.log(this.selectedUnit);
-
-
   }
+
+
+  OpenSe(event:any){
+    this.selectedUnit2 = event.value;
+  }
+
+  OpenSelectArea(event:any){
+    this.selectedAreaUnit = event.value
+  }
+
+  OpenSelectArea_(event:any){
+    this.selectedAreaUnit2 = event.value
+  }
+
+
 
   submission(event:any){}
   TrianglePerimeterCalculus(){
@@ -207,10 +223,10 @@ export class AppComponent {
     this.selectedFigure = event.value;
   }
 
-  OpenSelectArea(event:any){
-    this.selectedAreaUnit = event.value
-  }
+  
+  
 
+ 
    
 
 }

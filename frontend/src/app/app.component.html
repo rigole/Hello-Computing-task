@@ -86,25 +86,51 @@
     <p>
       If you want to convert the answer into an other unit, Choose it 
     </p>
-      <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+      
 
-        <mat-form-field  *ngIf="selectedOperations.name == 'Perimeter';">
+      <div class="convertUnit" *ngIf="selectedOperations.name == 'Perimeter';">
+        <mat-form-field  >
           <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
             <mat-label></mat-label>
             <mat-option  *ngFor="let unit of units" [value]="unit.name">
                 {{unit.name}}
             </mat-option>
           </mat-select>
-      </mat-form-field>
+        </mat-form-field>
+        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+        <mat-form-field >
+          <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
+            <mat-label></mat-label>
+            <mat-option  *ngFor="let unit of units" [value]="unit.name">
+                {{unit.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field *ngIf="selectedOperations.name == 'Area';">
-        <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
-          <mat-label></mat-label>
-          <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
-              {{unitArea.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+
+      <div class="convertUnitArea" *ngIf="selectedOperations.name == 'Area';">
+        <mat-form-field >
+          <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
+            <mat-label></mat-label>
+            <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+                {{unitArea.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+        <mat-form-field >
+          <mat-select  [(value)]="selectedAreaUnit2" (selectionChange) =" OpenSelectArea_($event)" >
+            <mat-label></mat-label>
+            <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+                {{unitArea.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+       
+
+      
     <div *ngIf="units.name === 'decimeter'">
       <p>Hello Placide</p>
     </div>
