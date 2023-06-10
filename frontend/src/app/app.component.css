@@ -1,12 +1,25 @@
 .main-div{
-    margin-top: 12rem;
+    margin: 5rem;
+    font-family: 'Comfortaa';
 }
 .title {
     font-family: 'Comfortaa';
     text-align: center;
     font-size: 35px;
 }
+.input-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
+.input-convert{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 
 .form-calculator{
     align-items: center;
@@ -29,7 +42,6 @@
 }
 
 .entryNumber{
-   
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,4 +50,29 @@
 .input-user{
     margin: 1rem;
     width: 500px;
+}
+@media screen and (max-width: 375px) {
+    .main-div{
+        margin: 2rem;
+    }
+    .input-user{
+        margin: 1rem;
+        width: 100%;
+    }
+    .calculation-button{
+        width: 200px;
+    }
+    .convertUnitArea .convertUnit{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .input-convert{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }

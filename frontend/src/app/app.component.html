@@ -8,7 +8,6 @@
         <mat-option *ngFor="let operation of oprations" [value]="operation">
           {{ operation.name }}
         </mat-option>
-       
       </mat-select>
     </mat-form-field>
     <p> Now Choose your figure</p>
@@ -18,22 +17,20 @@
         <mat-option *ngFor="let figure of figures" [value]="figure.name">
             {{ figure.name }}
         </mat-option>
-       
       </mat-select>
     </mat-form-field>
-
-
     <div class="entryNumber">
+      <!-- Rectangle -->
       <div *ngIf="selectedFigure == 'rectangle'; ">
         <mat-form-field class="input-user">
           <input required type="text" id="length" name="length" matInput  #length  placeholder="Please enter the length number">
         </mat-form-field>
-        
         <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle';">
           <input required type="text" id="width" matInput placeholder="Please enter the width">
         </mat-form-field>
         <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="RectangleCalculus()">Calculate</button>
-        <h3 id="rectangleValue">{{RectangleCalculus()}}</h3>
+        <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br>
+        <h2>If you want to convert the answer into an other unit, Choose it </h2>
         <div class="convertUnit" *ngIf="selectedOperations.name == 'Perimeter';">
           <mat-form-field  >
             <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
@@ -43,7 +40,11 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+          <div>
+            <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+            </mat-icon>
+          </div>
+          
           <mat-form-field >
             <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
               <mat-label></mat-label>
@@ -53,7 +54,6 @@
             </mat-select>
           </mat-form-field>
         </div>
-  
         <div class="convertUnitArea" *ngIf="selectedOperations.name == 'Area';">
           <mat-form-field >
             <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
@@ -74,15 +74,18 @@
           </mat-form-field>
         </div>
         <button class="calculation-button" mat-raised-button color="primary" (click) = "ConversionRectangle()">Convert</button>
-        <h2>{{  ConversionRectangle() }}</h2>
+        <h2 id="convertedRectangleValue">{{  ConversionRectangle() }}</h2>
       </div>
 
       <div *ngIf="selectedFigure == 'square';">
-        <mat-form-field class="input-user" >
-          <input required type="text" id="side" matInput placeholder="Please enter the side">
-        </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="SquareCalculus()">Calculate</button>
-        <h3>{{ SquareCalculus() }}</h3>
+        <!-- Square -->
+        <div class="input-div">
+          <mat-form-field class="input-user">
+            <input required type="text" id="side" matInput placeholder="Please enter the side">
+          </mat-form-field>
+          <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="SquareCalculus()">Calculate</button>
+          <h3 id="squareValue">{{ SquareCalculus() }}</h3>
+        </div>
         <div class="convertUnit" *ngIf="selectedOperations.name == 'Perimeter';">
           <mat-form-field  >
             <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
@@ -92,7 +95,10 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+          <div>
+            <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+            </mat-icon>
+          </div>
           <mat-form-field >
             <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
               <mat-label></mat-label>
@@ -102,7 +108,6 @@
             </mat-select>
           </mat-form-field>
         </div>
-  
         <div class="convertUnitArea" *ngIf="selectedOperations.name == 'Area';">
           <mat-form-field >
             <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
@@ -122,21 +127,19 @@
             </mat-select>
           </mat-form-field>
         </div>
-
-        
-         
-        <button class="calculation-button" mat-raised-button color="primary" (click) = "Conversion()">Convert</button>
-
+        <button class="calculation-button" mat-raised-button color="primary" (click) = "ConversionSquare()">Convert</button>
+        <h2 id="convertedSquareValue">{{  ConversionSquare() }}</h2>
       </div>
 
+       <!-- Circle -->
       <div *ngIf="selectedFigure == 'circle';">
-        <mat-form-field class="input-user" >
-          <input required type="text" id="radius" matInput placeholder="Please the radius">
-        </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="CircleCalculus()">Calculate</button>
-        <h3>{{ CircleCalculus() }}</h3>
-
-
+        <div class="input-div">
+          <mat-form-field class="input-user" >
+            <input required type="text" id="radius" matInput placeholder="Please the radius">
+          </mat-form-field>
+          <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="CircleCalculus()">Calculate</button>
+          <h3 id="circleSquare">{{ CircleCalculus() }}</h3>
+        </div>
         <div class="convertUnit" *ngIf="selectedOperations.name == 'Perimeter';">
           <mat-form-field  >
             <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
@@ -146,7 +149,10 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+          <div>
+            <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+            </mat-icon>
+          </div>
           <mat-form-field >
             <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
               <mat-label></mat-label>
@@ -156,7 +162,6 @@
             </mat-select>
           </mat-form-field>
         </div>
-  
         <div class="convertUnitArea" *ngIf="selectedOperations.name == 'Area';">
           <mat-form-field >
             <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
@@ -176,86 +181,92 @@
             </mat-select>
           </mat-form-field>
         </div>
-         
-        <button class="calculation-button" mat-raised-button color="primary" (click) = "Conversion()">Convert</button>
+        <button class="calculation-button" mat-raised-button color="primary" (click) = "ConversionCircle()">Convert</button>
+        <h2 id="convertedCircleValue">{{  ConversionCircle() }}</h2>
       </div>
 
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Area';">
-        <mat-form-field class="input-user" >
-          <input required type="text" id="base" matInput placeholder="Please the Base">
-        </mat-form-field>
-        <mat-form-field class="input-user">
-          <input required type="text" id="height" matInput placeholder="Please the Height">
-        </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TriangleAreaCalculus()">Calculate</button>
-        <h3>{{ TriangleAreaCalculus() }}</h3>
-
-        <mat-form-field >
-          <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
-            <mat-label></mat-label>
-            <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
-                {{unitArea.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
-        <mat-form-field >
-          <mat-select  [(value)]="selectedAreaUnit2" (selectionChange) =" OpenSelectArea_($event)" >
-            <mat-label></mat-label>
-            <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
-                {{unitArea.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <button class="calculation-button" mat-raised-button color="primary" (click) = "Conversion()">Convert</button>
+        <!-- Triangle -->
+        <div class="input-triangle">
+          <mat-form-field class="input-user">
+            <input required type="text" id="base" matInput placeholder="Please the Base">
+          </mat-form-field>
+          <mat-form-field class="input-user">
+            <input required type="text" id="height" matInput placeholder="Please the Height">
+          </mat-form-field>
+          <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TriangleAreaCalculus()">Calculate</button>
+          <h3 id="triangleArea">{{ TriangleAreaCalculus() }}</h3>
+        </div>
+       
+        <p>If you want to convert the answer into an other unit, Choose it </p>
+        <div class="">
+          <div class="input-convert">
+            <mat-form-field >
+              <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
+                <mat-label></mat-label>
+                <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+                    {{unitArea.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+              </mat-icon>
+            </div>
+            <mat-form-field >
+              <mat-select  [(value)]="selectedAreaUnit2" (selectionChange) =" OpenSelectArea_($event)" >
+                <mat-label></mat-label>
+                <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+                    {{unitArea.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <button class="calculation-button" mat-raised-button color="primary" (click) = "convertTriangleArea()">Convert</button>
+        <h2 id="convertedTriangleArea">{{  convertTriangleArea() }}</h2>
       </div>
-
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperations.name == 'Perimeter';">
-        <mat-form-field class="input-user" >
-          <input required type="text" id="firstside" matInput placeholder="Please enter the first side">
-        </mat-form-field>
-        <mat-form-field class="input-user">
-          <input required type="text" id="secondside" matInput placeholder="Please enter the second side">
-        </mat-form-field>
-        <mat-form-field class="input-user">
-          <input required type="text" id="thirdside" matInput placeholder="Please enter the third side">
-        </mat-form-field>
-        <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TrianglePerimeterCalculus()">Calculate</button>
-        <h3>{{ TrianglePerimeterCalculus() }}</h3>
-
-        <mat-form-field >
-          <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
-            <mat-label></mat-label>
-            <mat-option  *ngFor="let unit of units" [value]="unit.name">
-                {{unit.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
-        <mat-form-field >
-          <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
-            <mat-label></mat-label>
-            <mat-option  *ngFor="let unit of units" [value]="unit.name">
-                {{unit.name}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <button class="calculation-button" mat-raised-button color="primary" (click) = "Conversion()">Convert</button>
+        <div class="input-div">
+          <mat-form-field class="input-user">
+            <input required type="text" id="firstside" matInput placeholder="Please enter the first side">
+          </mat-form-field>
+          <mat-form-field class="input-user">
+            <input required type="text" id="secondside" matInput placeholder="Please enter the second side">
+          </mat-form-field>
+          <mat-form-field class="input-user">
+            <input required type="text" id="thirdside" matInput placeholder="Please enter the third side">
+          </mat-form-field>
+          <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TrianglePerimeterCalculus()">Calculate</button>
+          <h3 id="trianglePerimeter">{{ TrianglePerimeterCalculus() }}</h3>
+        </div>
+  
+        <p>If you want to convert the answer into an other unit, Choose it </p>
+        <div class="input-div">
+          <div class="input-convert">
+            <mat-form-field >
+              <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
+                <mat-label></mat-label>
+                <mat-option  *ngFor="let unit of units" [value]="unit.name">
+                    {{unit.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+            <mat-form-field >
+              <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
+                <mat-label></mat-label>
+                <mat-option  *ngFor="let unit of units" [value]="unit.name">
+                    {{unit.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <button class="calculation-button" mat-raised-button color="primary" (click) = "convertTrianglePerimeter()">Convert</button>
+          <h2 id="convertedTrianglePerimeter">{{  convertTrianglePerimeter() }}</h2>
+        </div>
       </div>
     </div>
-
-
-
-    
-   
-    <p></p>
-    <p>
-      If you want to convert the answer into an other unit, Choose it 
-    </p>
-      
-
-      
   </form>
 </div>
 <router-outlet></router-outlet>
