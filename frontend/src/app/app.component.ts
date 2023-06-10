@@ -97,6 +97,7 @@ export class AppComponent {
     this.selectedAreaUnit2 = event.value
   }
   
+  //Conversion on square Operations 
   ConversionSquare(){
     const squareNumber = Number(this.SquareCalculus()) ;
     const convertedSquareValue = <HTMLInputElement>document.getElementById("convertedSquareValue");
@@ -217,6 +218,7 @@ export class AppComponent {
 
   }
 
+//Conversion on Rectangle Operations 
   ConversionRectangle(){
     const rectangleNumber = Number(this.RectangleCalculus()) ;
     const convertedRectangleValue = <HTMLInputElement>document.getElementById("convertedRectangleValue");
@@ -338,6 +340,7 @@ export class AppComponent {
 
   }
 
+  //Conversion on Circle Operations 
   ConversionCircle(){
     const circleNumber = Number(this.CircleCalculus());
     const convertedCircleValue = <HTMLInputElement>document.getElementById("convertedCircleValue");
@@ -457,6 +460,7 @@ export class AppComponent {
     }
   }
 
+//Conversion on Triangle perimeters 
   convertTrianglePerimeter(){
     const trianglePerimeterNumber = Number(this.TrianglePerimeterCalculus()) ;
     const convertedTrianglePerimeter = <HTMLInputElement>document.getElementById("convertedTrianglePerimeter");
@@ -576,6 +580,7 @@ export class AppComponent {
     }
   }
 
+//Conversion on Triangle Area 
   convertTriangleArea(){
     const TriangleAreaNumber = Number(this. TriangleAreaCalculus()) ;
     const convertedTriangleArea = <HTMLInputElement>document.getElementById("convertedTriangleArea");
@@ -695,8 +700,10 @@ export class AppComponent {
     }
   }
 
+  /*
   Conversion(){}
-  submission(event:any){}
+  submission(event:any){}*/
+  //Triangle Perimeters Operations
   TrianglePerimeterCalculus(){
     this.firstSide = (<HTMLInputElement>document.getElementById("firstside")).value;
     this.secondSide = (<HTMLInputElement>document.getElementById("secondside")).value;
@@ -726,7 +733,7 @@ export class AppComponent {
   }
 
   
-
+  //Triangle Area Operations
   TriangleAreaCalculus(){
     this.base = (<HTMLInputElement>document.getElementById("base")).value;
     this.height = (<HTMLInputElement>document.getElementById("height")).value;
@@ -753,6 +760,7 @@ export class AppComponent {
       }  
   }
 
+  //Circles  Operations(Area and Perimeters)
   CircleCalculus(){
     this.radius = (<HTMLInputElement>document.getElementById("radius")).value;
     const circleSquare = <HTMLInputElement>document.getElementById("circleSquare")
@@ -787,7 +795,7 @@ export class AppComponent {
     }
   }
   
-
+//Square  Operations(Area and Perimeters)
   SquareCalculus(){
     this.side = (<HTMLInputElement>document.getElementById("side")).value;
     const squareValue = <HTMLInputElement>document.getElementById("squareValue")
@@ -822,6 +830,7 @@ export class AppComponent {
     }
   }
   
+  //Rectangle  Operations(Area and Perimeters)
   RectangleCalculus(){
     this.length = (<HTMLInputElement>document.getElementById("length")).value;
     this.width = (<HTMLInputElement>document.getElementById("width")).value;
@@ -863,11 +872,5 @@ export class AppComponent {
   OpenSelect(event:any){
     this.selectedFigure = event.value;
   }
-
-  
-  
-
- 
    
-
 }

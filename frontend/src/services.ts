@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 
+// class for api calling
 export class ApiServiceService{
     constructor(private http:HttpClient){}
 

@@ -1,3 +1,4 @@
+/* main containers */
 .main-div{
     margin: 5rem;
     font-family: 'Comfortaa';
@@ -7,19 +8,6 @@
     text-align: center;
     font-size: 35px;
 }
-.input-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.input-convert{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
 
 .form-calculator{
     align-items: center;
@@ -27,19 +15,23 @@
     display: flex;
     flex-direction: column;
 }
-.units{
+
+/* end main containers */
+
+/* input */ 
+.input-convert{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
-.icon-convert{
-    margin-bottom: 1rem;
-   
+.input-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.calculation-button{
-    width: 400px;
-}
-
 .entryNumber{
     display: flex;
     flex-direction: column;
@@ -51,6 +43,27 @@
     width: 500px;
 }
 
+/* end of input */
+
+
+/* units and icon */
+.units{
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-convert{
+    margin-bottom: 1rem; 
+}
+
+
+.calculation-button{
+    width: 400px;
+}
+
+/* end units and icon */
+
+/* Media Queries for Responsive */
 
 @media screen and (max-width: 375px) {
     .main-div{
