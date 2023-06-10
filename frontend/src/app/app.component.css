@@ -33,9 +33,8 @@
 }
 
 .icon-convert{
-    margin-top: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    margin-bottom: 1rem;
+   
 }
 .calculation-button{
     width: 400px;
@@ -51,6 +50,8 @@
     margin: 1rem;
     width: 500px;
 }
+
+
 @media screen and (max-width: 375px) {
     .main-div{
         margin: 2rem;
@@ -62,7 +63,14 @@
     .calculation-button{
         width: 200px;
     }
-    .convertUnitArea .convertUnit{
+     .convertUnit{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .convertUnitArea{
         display: flex;
         flex-direction: column;
         align-items: center;
