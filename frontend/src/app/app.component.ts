@@ -16,7 +16,6 @@ import { MatSelect } from '@angular/material/select';
 
 
 export class AppComponent {
- 
   title = 'frontend';
   figures:any;
   units:any;
@@ -35,7 +34,12 @@ export class AppComponent {
   firstSide: string;
   secondSide: string;
   thirdSide : string;
+  rectangleResponse: string;
   rectangleValue:string;
+  
+
+ 
+
 
   
  
@@ -55,7 +59,7 @@ export class AppComponent {
     this.secondSide = "";
     this.thirdSide = "";
     this.rectangleValue = "";
-
+    this.rectangleResponse = "";
   }
 
   ngOnInit(): void {
@@ -77,6 +81,8 @@ export class AppComponent {
     {id: 1, name: 'Perimeter'},
    
   ];
+  
+
 
    selectedOperations = this.oprations[1]; 
 

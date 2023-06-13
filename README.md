@@ -16,4 +16,7 @@ To run the application you after to init -y the main folder and  after installin
     - "client":"npm start --prefix frontend"<br/>
     - "dev":"concurrently \"npm run server\" \"npm run client\" "<br/>
 
-inside the "scripts key". And after that you will be able to run the command npm run dev to launch both the frontend and the backend.
+inside the "scripts" key. And after that you will be able to run the command npm run dev to launch both the frontend and the backend.
+
+
+
