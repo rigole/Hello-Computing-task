@@ -1,8 +1,6 @@
-import { Component, ViewChild,ElementRef } from '@angular/core';
+import { Component, ViewChild,ElementRef, OnInit } from '@angular/core';
 import { ApiServiceService } from 'src/services';
-import { FormGroup } from '@angular/forms';
-import { MatSelect } from '@angular/material/select';
-
+import oprations from 'src/operations';
 
 
 
@@ -15,16 +13,18 @@ import { MatSelect } from '@angular/material/select';
 
 
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'frontend';
   figures:any;
   units:any;
   unitsArea:any;
+ 
   selectedUnit:string;
   selectedUnit2:string;
   selectedFigure:string;
   selectedAreaUnit: string;
   selectedAreaUnit2: string;
+   /*
   length: string;
   width:string;
   side: string;
@@ -36,19 +36,19 @@ export class AppComponent {
   thirdSide : string;
   rectangleResponse: string;
   rectangleValue:string;
-  
-
- 
+ */
 
 
   
- 
+  
   constructor(private apiservice: ApiServiceService){
+   
     this.selectedUnit = "meter";
     this.selectedUnit2 = "decimeter";
     this.selectedFigure = "rectangle"
     this.selectedAreaUnit = "meter square"
     this.selectedAreaUnit2 = "decimeter square"
+    /*
     this.length = "";
     this.width = "";
     this.side = "";
@@ -60,8 +60,9 @@ export class AppComponent {
     this.thirdSide = "";
     this.rectangleValue = "";
     this.rectangleResponse = "";
+    */
   }
-
+ 
   ngOnInit(): void {
     this.apiservice.getFigures().subscribe(res => {
       this.figures=res;
@@ -76,19 +77,20 @@ export class AppComponent {
     })
   }
   
-   oprations = [
-    {id: 0, name: 'Area'},
-    {id: 1, name: 'Perimeter'},
-   
-  ];
+ 
   
+selectedOperations = oprations
 
 
-   selectedOperations = this.oprations[1]; 
+
+ 
+selectedOperation = oprations[1]; 
 
   OpenSel(event:any){
     this.selectedUnit = event.value;
   }
+
+
 
 
   OpenSe(event:any){
@@ -103,6 +105,7 @@ export class AppComponent {
     this.selectedAreaUnit2 = event.value
   }
   
+  /*
   //Conversion on square Operations 
   ConversionSquare(){
     const squareNumber = Number(this.SquareCalculus()) ;
@@ -114,7 +117,7 @@ export class AppComponent {
     }  else{
       convertedSquareValue.style.color = "green";
       convertedSquareValue.style.fontFamily = "Comfortaa";
-        if(this.selectedOperations.name == "Perimeter"){
+        if(this.selectedOperation.name == "Perimeter"){
           if(this.selectedUnit == "meter" && this.selectedUnit2 =="meter"){
             return squareNumber + " meters";
           }
@@ -224,127 +227,7 @@ export class AppComponent {
 
   }
 
-//Conversion on Rectangle Operations 
-  ConversionRectangle(){
-    const rectangleNumber = Number(this.RectangleCalculus()) ;
-    const convertedRectangleValue = <HTMLInputElement>document.getElementById("convertedRectangleValue");
-    if(isNaN(rectangleNumber)){
-      convertedRectangleValue.style.color = "red";
-      convertedRectangleValue.style.fontFamily = "Comfortaa";
-      return "You need to calculate area or perimeter before converting";
-    }
-    else{
-      convertedRectangleValue.style.color = "green";
-      convertedRectangleValue.style.fontFamily = "Comfortaa";
-        if(this.selectedOperations.name == "Perimeter"){
-          if(this.selectedUnit == "meter" && this.selectedUnit2 =="meter"){
-            return rectangleNumber + " meters";
-          }
-          else if (this.selectedUnit == "meter" && this.selectedUnit2 =="decimeter"){
-            return rectangleNumber * 10 + " decimeters";
-          }
-          else if (this.selectedUnit == "meter" && this.selectedUnit2 =="centimeter" ){
-            return rectangleNumber * 100 + " centimeters";
-          }
-          else if (this.selectedUnit == "meter" && this.selectedUnit2 =="kilometer" ){
-            return rectangleNumber / 1000 + " kilometers";
-          } 
-          else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="meter" ){
-            return rectangleNumber / 100 + " meters";
-          }
-          else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="decimeter" ){
-            return rectangleNumber / 10 + " decimeters";
-          }
-          else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="centimeter" ){
-            return rectangleNumber * 100 + " centimeters";
-          }
-          else if (this.selectedUnit == "centimeter" && this.selectedUnit2 =="kilometer" ){
-            return rectangleNumber / 100000 + " kilometers";
-          }
-          else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="meter" ){
-            return rectangleNumber / 10 + " meters";
-          }
-          else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="centimeter" ){
-            return rectangleNumber * 10 + " centimeters";
-          }
-          else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="kilometer" ){
-            return rectangleNumber / 10000 + " kilometers";
-          }
-          else if (this.selectedUnit == "decimeter" && this.selectedUnit2 =="decimeter" ){
-            return rectangleNumber * 10 + " decimeters";
-          }
-          else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="meter" ){
-            return rectangleNumber * 1000 + " meters";
-          }
-          else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="centimeter" ){
-            return rectangleNumber * 100000 + " centimeters";
-          }
-          else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="decimeter" ){
-            return rectangleNumber * 10000 + " decimeters";
-          }
-          else if (this.selectedUnit == "kilometer" && this.selectedUnit2 =="kilometer" ){
-            return rectangleNumber / 1000 + " kilometers";
-          }
-          else{
-            return rectangleNumber;
-          }
-        } else{
-          if(this.selectedAreaUnit == "meter square" && this.selectedAreaUnit2 =="meter square"){
-            return rectangleNumber + " meters square";
-          }
-          else if (this.selectedAreaUnit == "meter square" && this.selectedAreaUnit2 =="decimeter square"){
-            return rectangleNumber * 100 + " decimeters square";
-          }
-          else if (this.selectedAreaUnit == "meter square" && this.selectedAreaUnit2 =="centimeter square" ){
-            return rectangleNumber * 10000 + " centimeters square";
-          }
-          else if (this.selectedAreaUnit == "meter square" && this.selectedAreaUnit2 =="kilometer square" ){
-            return rectangleNumber / 1000000 + " kilometers square";
-          } 
-          else if (this.selectedAreaUnit == "centimeter square" && this.selectedAreaUnit2 =="meter square" ){
-            return rectangleNumber / 10000 + " meters square";
-          }
-          else if (this.selectedAreaUnit == "centimeter square" && this.selectedAreaUnit2 =="decimeter square" ){
-            return rectangleNumber / 10 + " decimeters square";
-          }
-          else if (this.selectedAreaUnit == "centimeter square" && this.selectedAreaUnit2 =="centimeter square" ){
-            return rectangleNumber * 10000 + " centimeters square";
-          }
-          else if (this.selectedAreaUnit == "centimeter square" && this.selectedAreaUnit2 =="kilometer square" ){
-            return rectangleNumber / 10000000 + " kilometers square";
-          }
-          else if (this.selectedAreaUnit == "decimeter square" && this.selectedAreaUnit2 =="meter square" ){
-            return rectangleNumber / 100 + " meters square";
-          }
-          else if (this.selectedAreaUnit == "decimeter square" && this.selectedAreaUnit2 =="centimeter square" ){
-            return rectangleNumber * 100 + " centimeters square";
-          }
-          else if (this.selectedAreaUnit == "decimeter square" && this.selectedAreaUnit2 =="kilometer square" ){
-            return rectangleNumber / 100000000 + " kilometers square";
-          }
-          else if (this.selectedAreaUnit == "decimeter square" && this.selectedAreaUnit2 =="decimeter square" ){
-            return rectangleNumber * 100 + " decimeters square";
-          }
-          else if (this.selectedAreaUnit == "kilometer square" && this.selectedAreaUnit2 =="meter square" ){
-            return rectangleNumber * 1000000 + " meters square";
-          }
-          else if (this.selectedAreaUnit == "kilometer square" && this.selectedAreaUnit2 =="centimeter square" ){
-            return rectangleNumber * 10000000 + " centimeters square";
-          }
-          else if (this.selectedAreaUnit == "kilometer square" && this.selectedAreaUnit2 =="decimeter square" ){
-            return rectangleNumber * 10000 + " decimeters square";
-          }
-          else if (this.selectedAreaUnit == "kilometer square" && this.selectedAreaUnit2 =="kilometer square" ){
-            return rectangleNumber / 1000000 + " kilometers square";
-          }
-          else{
-            return rectangleNumber;
-          }
-        }
- 
-    }
 
-  }
 
   //Conversion on Circle Operations 
   ConversionCircle(){
@@ -357,7 +240,7 @@ export class AppComponent {
     }  else{
       convertedCircleValue.style.color = "green";
       convertedCircleValue.style.fontFamily = "Comfortaa";
-        if(this.selectedOperations.name == "Perimeter"){
+        if(this.selectedOperation.name == "Perimeter"){
           if(this.selectedUnit == "meter" && this.selectedUnit2 =="meter"){
             return circleNumber + " meters";
           }
@@ -477,7 +360,7 @@ export class AppComponent {
     }   else{
       convertedTrianglePerimeter.style.color = "green";
       convertedTrianglePerimeter.style.fontFamily = "Comfortaa";
-        if(this.selectedOperations.name == "Perimeter"){
+        if(this.selectedOperation.name == "Perimeter"){
           if(this.selectedUnit == "meter" && this.selectedUnit2 =="meter"){
             return trianglePerimeterNumber + " meters";
           }
@@ -597,7 +480,7 @@ export class AppComponent {
     }   else{
       convertedTriangleArea.style.color = "green";
       convertedTriangleArea.style.fontFamily = "Comfortaa";
-        if(this.selectedOperations.name == "Perimeter"){
+        if(this.selectedOperation.name == "Perimeter"){
           if(this.selectedUnit == "meter" && this.selectedUnit2 =="meter"){
             return TriangleAreaNumber + " meters";
           }
@@ -710,6 +593,7 @@ export class AppComponent {
   Conversion(){}
   submission(event:any){}*/
   //Triangle Perimeters Operations
+  /*
   TrianglePerimeterCalculus(){
     this.firstSide = (<HTMLInputElement>document.getElementById("firstside")).value;
     this.secondSide = (<HTMLInputElement>document.getElementById("secondside")).value;
@@ -738,8 +622,9 @@ export class AppComponent {
       }  
   }
 
-  
+  */
   //Triangle Area Operations
+  /*
   TriangleAreaCalculus(){
     this.base = (<HTMLInputElement>document.getElementById("base")).value;
     this.height = (<HTMLInputElement>document.getElementById("height")).value;
@@ -765,7 +650,8 @@ export class AppComponent {
           }          
       }  
   }
-
+*/
+/*
   //Circles  Operations(Area and Perimeters)
   CircleCalculus(){
     this.radius = (<HTMLInputElement>document.getElementById("radius")).value;
@@ -776,7 +662,7 @@ export class AppComponent {
       circleSquare.style.color = "red";
       return "Please insert a number for side"
     } else {
-        if (this.selectedOperations.name == "Area") {
+        if (this.selectedOperation.name == "Area") {
           if (radiusNumber == 0 || radiusNumber < 0) {
             circleSquare.style.fontFamily = "Comfortaa";
             circleSquare.style.color = "red";
@@ -800,7 +686,8 @@ export class AppComponent {
         }
     }
   }
-  
+  */
+ /*
 //Square  Operations(Area and Perimeters)
   SquareCalculus(){
     this.side = (<HTMLInputElement>document.getElementById("side")).value;
@@ -811,7 +698,7 @@ export class AppComponent {
       squareValue.style.color = "red";
       return "Please insert a number for side"
     } else {
-        if (this.selectedOperations.name == "Area") {
+        if (this.selectedOperation.name == "Area") {
           if (sideNumber == 0 || sideNumber < 0) {
             squareValue.style.fontFamily = "Comfortaa"
             squareValue.style.color = "red";
@@ -835,48 +722,19 @@ export class AppComponent {
         }
     }
   }
-  
-  //Rectangle  Operations(Area and Perimeters)
-  RectangleCalculus(){
-    this.length = (<HTMLInputElement>document.getElementById("length")).value;
-    this.width = (<HTMLInputElement>document.getElementById("width")).value;
-    const widthNumber = Number(this.width);
-    const lengthNumber = Number(this.length);
-    const responseElement =  <HTMLInputElement>document.getElementById("rectangleValue")
-   
-   if(this.length == "" || this.width =="" || isNaN(widthNumber) || isNaN(lengthNumber)){
-      responseElement.style.color = "red";
-      responseElement.style.fontFamily = "Comfortaa"
-      return "Please insert a number for width and a number for length";
-   } else {
-        if(this.selectedOperations.name == "Area"){
-          if(widthNumber == 0 || lengthNumber == 0 || widthNumber < 0 || lengthNumber < 0){
-            responseElement.style.fontFamily = "Comfortaa"
-            responseElement.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            responseElement.style.color = "green";
-            return widthNumber * lengthNumber;
-          }
-                  
-        } else{
-          if(widthNumber == 0 || lengthNumber == 0 || widthNumber < 0 || lengthNumber < 0){
-            responseElement.style.fontFamily = "Comfortaa"
-            responseElement.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            responseElement.style.fontFamily = "Comfortaa"
-            responseElement.style.color = "green";
-            return (widthNumber + lengthNumber) * 2;
-          }
-      }
-    }  
+  */
+ 
+  OpenSelect(event:any){
+    this.selectedFigure = event.target.value;
+    console.log(this.selectedFigure)
+    
   }
 
-  OpenSelect(event:any){
-    this.selectedFigure = event.value;
+  OpenSelectOperation(event:any){
+    this.selectedOperation = event.target.value;
+    console.log(this.selectedOperation)
   }
-   
+
 }
+
+

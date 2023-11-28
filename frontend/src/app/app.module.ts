@@ -6,16 +6,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
-
-/*
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Input } from '@angular/core';
-*/
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RectangleComponent } from './rectangle/rectangle.component';
+import { InputComponent } from './input/input.component';
+import { SquareComponent } from './square/square.component';
+import { CircleComponent } from './circle/circle.component';
+import { TriangleComponent } from './triangle/triangle.component';
 
 
 
@@ -23,21 +22,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RectangleComponent,
+    InputComponent,
+    SquareComponent,
+    CircleComponent,
+    TriangleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule, 
     MatInputModule,
     MatSelectModule,
     MatIconModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule, 
     MatButtonModule,
     HttpClientModule,
-    FormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent]
 })
 

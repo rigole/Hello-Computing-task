@@ -1,0 +1,23 @@
+.input-convert{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.entryNumber{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: space-between;
+}
+.input-user{
+    margin: 1rem;
+    width: 500px;
+    height: 30px;
+}
+
+.mistake{
+    color: red;
+}
