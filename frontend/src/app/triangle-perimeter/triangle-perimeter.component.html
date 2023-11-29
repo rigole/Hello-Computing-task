@@ -1,11 +1,20 @@
 
-        <form [formGroup]="trianglePerimeterForm">
+        <form [formGroup]="trianglePerimeterForm" (ngSubmit)="TrianglePerimeterCalculus()">
             <app-input [control]="firstSide" type="number" placeholder="Enter value for the first side"></app-input>
             <app-input [control]="secondSide" type="number" placeholder="Enter value for the second side"></app-input>
             <app-input [control]="thirdSide" type="number" placeholder="Enter value for the third side"></app-input>
+            <button 
+              class="calculation-button" 
+              type="button" 
+              mat-raised-button 
+              color="primary" 
+              [disabled]="trianglePerimeterForm.invalid || inSubmission"
+            >
+            Calculate
+          </button>
         </form>
 
-      <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TrianglePerimeterCalculus()">Calculate</button>
+    
       <h3 id="trianglePerimeter">{{ TrianglePerimeterCalculus() }}</h3>
    
 

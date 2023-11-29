@@ -17,6 +17,8 @@ export class RectangleComponent  {
   units:any;
   unitsArea:any;
 
+  inSubmission = false
+
   length = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(0),
@@ -186,7 +188,9 @@ ConversionRectangle(){
 */
 }
 
-RectangleCalculus(){}
+ RectangleCalculus(){
+ console.log("Submited")
+}
 
 
 

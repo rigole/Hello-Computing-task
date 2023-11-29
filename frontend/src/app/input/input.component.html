@@ -13,10 +13,10 @@
     <p *ngIf="control.errors?.['required']" class="mistake">
         This is required. Please insert a value
     </p>
-    <p *ngIf="control.errors?.['min']">
-        Value too low
+    <p *ngIf="control.errors?.['min']" class="mistake">
+        Value too low. Cannot be lower than 0
     </p>
-    <p *ngIf="control.errors?.['max']">
-        Value too low
+    <p *ngIf="control.errors?.['max']" class="mistake">
+        Value too high. Cannot exceed 9999
     </p>
 </ng-container>

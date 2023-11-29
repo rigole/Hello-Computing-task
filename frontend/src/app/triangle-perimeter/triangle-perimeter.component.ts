@@ -8,6 +8,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class TrianglePerimeterComponent {
 
+
+  inSubmission = false
+
   firstSide = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(0),

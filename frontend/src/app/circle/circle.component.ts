@@ -7,8 +7,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./circle.component.css']
 })
 export class CircleComponent {
-  radius = new FormControl<number | null>(null, [
 
+
+  inSubmission = false
+  radius = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(0),
     Validators.max(9999)

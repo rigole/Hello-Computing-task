@@ -1,29 +1,21 @@
 
-  <!-- 
-    <mat-form-field class="input-user">
-    <input required type="text" id="length" name="length" matInput  #length  placeholder="Please enter the length number">
-  </mat-form-field>
-  
-  -->
- <form [formGroup]="rectangleForm">
+ <form [formGroup]="rectangleForm" (ngSubmit)="RectangleCalculus()">
   <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
   <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
+  <button 
+    class="calculation-button" 
+    type="submit" 
+    mat-raised-button 
+    color="primary"
+    [disabled]="rectangleForm.invalid || inSubmission"
+   >
+    Calculate
+  </button>
  </form>
 
-  
-  
- 
+
 
   
-      <!-- 
-        <mat-form-field class="input-user" *ngIf="selectedFigure == 'rectangle';">
-    <input required type="text" id="width" matInput placeholder="Please enter the width">
-    </mat-form-field>
-
-     -->
-
-
-  <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="RectangleCalculus()">Calculate</button>
   <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br>
   <h2>If you want to convert the answer into an other unit, Choose it </h2>
   <div class="convertUnit" *ngIf="selectedOperation.name == 'Perimeter';">

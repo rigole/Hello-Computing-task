@@ -8,8 +8,8 @@ import { FormGroup, FormControl,Validators } from '@angular/forms'
 })
 export class SquareComponent {
 
+  inSubmission = false
   side = new FormControl<number | null>(null, [
-
     Validators.required,
     Validators.min(0),
     Validators.max(9999)
@@ -144,6 +144,7 @@ export class SquareComponent {
 
   //Square  Operations(Area and Perimeters)
   SquareCalculus(){
+    //this.inSubmision = true
     /*
     this.side = (<HTMLInputElement>document.getElementById("side")).value;
     const squareValue = <HTMLInputElement>document.getElementById("squareValue")

@@ -2,11 +2,20 @@
         
 
         
-          <form [formGroup]="triangleForm">
+          <form [formGroup]="triangleForm" (ngSubmit)="TriangleAreaCalculus()">
             <app-input [control]="height" type="number" placeholder="enter a value for the height" ></app-input>
             <app-input [control]="base" type="number" placeholder="enter a value for the base" ></app-input>
+            <button 
+              class="calculation-button" 
+              type="submit" 
+              mat-raised-button 
+              color="primary"
+              [disabled]="triangleForm.invalid || inSubmission" 
+            >
+            Calculate
+          </button>
           </form>
-          <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TriangleAreaCalculus()">Calculate</button>
+         
           <h3 id="triangleArea">{{ TriangleAreaCalculus() }}</h3>
   
        <!--

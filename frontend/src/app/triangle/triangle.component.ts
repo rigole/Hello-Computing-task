@@ -8,6 +8,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class TriangleComponent {
 
+  inSubmission = false
+
   
   height = new FormControl<number | null>(null, [
     Validators.required,
@@ -21,16 +23,11 @@ export class TriangleComponent {
     Validators.max(9999)
   ])
 
-  sideNumber3 = new FormControl<number | null>(null, [
-    Validators.required,
-    Validators.min(0),
-    Validators.max(9999)
-  ])
+  
 
   triangleForm = new FormGroup({
     height: this.height,
     base: this.base,
-    sideNumber3: this.sideNumber3
   })
 
   TriangleAreaCalculus(){
