@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
   figures:any;
   units:any;
   unitsArea:any;
- 
+  selectedOperation:string;
   selectedUnit:string;
   selectedUnit2:string;
   selectedFigure:string;
@@ -48,6 +48,7 @@ export class AppComponent implements OnInit{
     this.selectedFigure = "rectangle"
     this.selectedAreaUnit = "meter square"
     this.selectedAreaUnit2 = "decimeter square"
+    this.selectedOperation = "Perimeter"
     /*
     this.length = "";
     this.width = "";
@@ -84,7 +85,7 @@ selectedOperations = oprations
 
 
  
-selectedOperation = oprations[1]; 
+
 
   OpenSel(event:any){
     this.selectedUnit = event.value;
@@ -731,7 +732,7 @@ selectedOperation = oprations[1];
   }
 
   OpenSelectOperation(event:any){
-    this.selectedOperation = event.target.value;
+    this.selectedOperation= event.target.value ;
     console.log(this.selectedOperation)
   }
 

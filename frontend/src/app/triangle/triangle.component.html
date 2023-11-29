@@ -1,1 +1,46 @@
-<p>triangle works!</p>
+ <!-- Triangle  Area  -->
+        
+
+        
+          <form [formGroup]="triangleForm">
+            <app-input [control]="height" type="number" placeholder="enter a value for the height" ></app-input>
+            <app-input [control]="base" type="number" placeholder="enter a value for the base" ></app-input>
+          </form>
+          <button class="calculation-button" type="button" mat-raised-button color="primary" (click)="TriangleAreaCalculus()">Calculate</button>
+          <h3 id="triangleArea">{{ TriangleAreaCalculus() }}</h3>
+  
+       <!--
+        <p>If you want to convert the answer into an other unit, Choose it </p>
+        <div class="">
+          <div class="input-convert">
+            <mat-form-field >
+              <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
+                <mat-label></mat-label>
+                <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+                    {{unitArea.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div id="icon-div">
+              <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+              </mat-icon>
+            </div>
+            <mat-form-field >
+              <mat-select  [(value)]="selectedAreaUnit2" (selectionChange) =" OpenSelectArea_($event)" >
+                <mat-label></mat-label>
+                <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+                    {{unitArea.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+ -->
+
+
+        <button class="calculation-button" mat-raised-button color="primary" (click) = "convertTriangleArea()">Convert</button>
+        <h2 id="convertedTriangleArea">{{  convertTriangleArea() }}</h2>
+
+
+       
+     

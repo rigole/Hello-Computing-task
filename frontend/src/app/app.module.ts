@@ -15,6 +15,8 @@ import { InputComponent } from './input/input.component';
 import { SquareComponent } from './square/square.component';
 import { CircleComponent } from './circle/circle.component';
 import { TriangleComponent } from './triangle/triangle.component';
+import { TrianglePerimeterComponent } from './triangle-perimeter/triangle-perimeter.component';
+
 
 
 
@@ -27,7 +29,8 @@ import { TriangleComponent } from './triangle/triangle.component';
     InputComponent,
     SquareComponent,
     CircleComponent,
-    TriangleComponent
+    TriangleComponent,
+    TrianglePerimeterComponent,
   ],
   imports: [
     BrowserModule,
