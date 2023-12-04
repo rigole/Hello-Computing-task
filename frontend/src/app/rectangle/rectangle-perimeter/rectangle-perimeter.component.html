@@ -1,0 +1,65 @@
+
+<form [formGroup]="rectangleForm" (ngSubmit)="RectangleCalculusPerimeter()">
+    <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
+    <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
+    <button 
+      class="calculation-button" 
+      type="submit" 
+      mat-raised-button 
+      color="primary"
+      [disabled]="rectangleForm.invalid || inSubmission"
+     >
+      Calculate
+    </button>
+    <h2 [hidden]="" id="convertedRectangleValue" >{{ RectangleCalculusPerimeter() }}</h2>
+   </form>
+  
+  
+  
+<div>
+   <!--  <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br> 
+    <h2>If you want to convert the answer into an other unit, Choose it </h2>
+    <div class="convertUnit" *ngIf="selectedOperation.name == 'Perimeter';">
+      <div>
+        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+        </mat-icon>
+      </div>
+      -->
+      <!--
+         <mat-form-field>
+        <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
+          <mat-label></mat-label>
+          <mat-option  *ngFor="let unit of units" [value]="unit.name">
+              {{unit.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+       </div>
+       -->
+     
+   
+    
+      <!--
+        <div class="convertUnitArea" *ngIf="selectedOperation.name == 'Area';">
+         <mat-form-field >
+        <mat-select  (value)="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
+          <mat-label></mat-label>
+          <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+              {{unitArea.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
+      <mat-form-field >
+        <mat-select  (value)="selectedAreaUnit2" (selectionChange) ="OpenSelectArea_($event)" >
+          <mat-label></mat-label>
+          <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+              {{unitArea.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      -->
+     
+    </div>
+  
+  

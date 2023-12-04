@@ -10,12 +10,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RectangleComponent } from './rectangle/rectangle.component';
+import { RectangleComponent } from './rectangle/rectangle-area/rectangle.component';
 import { InputComponent } from './input/input.component';
-import { SquareComponent } from './square/square.component';
-import { CircleComponent } from './circle/circle.component';
+import { SquareComponent } from './square/square-perimeter/square.component';
+import { CircleComponent } from './circle/circle-area/circle.component';
 import { TriangleComponent } from './triangle/triangle.component';
 import { TrianglePerimeterComponent } from './triangle-perimeter/triangle-perimeter.component';
+import { RectanglePerimeterComponent } from './rectangle/rectangle-perimeter/rectangle-perimeter.component';
+import { SquareAreaComponent } from './square/square-area/square-area.component';
+import { CirclePerimeterComponent } from './circle/circle-perimeter/circle-perimeter.component';
 
 
 
@@ -31,6 +34,9 @@ import { TrianglePerimeterComponent } from './triangle-perimeter/triangle-perime
     CircleComponent,
     TriangleComponent,
     TrianglePerimeterComponent,
+    RectanglePerimeterComponent,
+    SquareAreaComponent,
+    CirclePerimeterComponent,
   ],
   imports: [
     BrowserModule,

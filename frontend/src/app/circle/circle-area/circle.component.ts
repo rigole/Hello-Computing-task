@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-circle',
+  selector: 'app-circle-area',
   templateUrl: './circle.component.html',
   styleUrls: ['./circle.component.css']
 })

@@ -21,19 +21,42 @@
       </select>
    
     <div class="entryNumber">
+
       <!-- Rectangle -->
-      <div *ngIf="selectedFigure == 'rectangle'; ">
-       <app-rectangle></app-rectangle>
+      <div *ngIf="selectedFigure == 'rectangle' && selectedOperation == 'Area'; ">
+        <app-rectangle></app-rectangle>
+       </div>
+
+      <div *ngIf="selectedFigure == 'rectangle' && selectedOperation == 'Perimeter'; ">
+       <app-rectangle-perimeter></app-rectangle-perimeter>
       </div>
 
-     
-      <div *ngIf="selectedFigure == 'square';">
-        <app-square></app-square>
+      
+
+
+       <!-- Square -->
+      
+       <div *ngIf="selectedFigure == 'square' && selectedOperation == 'Perimeter'; ">
+        <app-square-perimeter></app-square-perimeter>
       </div>
 
-      <div *ngIf="selectedFigure == 'circle';">
-        <app-circle></app-circle>
+      <div *ngIf="selectedFigure == 'square' && selectedOperation == 'Area'; ">
+        <app-square-area></app-square-area>
       </div>
+
+       <!-- Circle -->
+
+      <div *ngIf="selectedFigure == 'circle' && selectedOperation == 'Perimeter'; ">
+        <app-circle-perimeter></app-circle-perimeter>
+      </div>
+
+      <div *ngIf="selectedFigure == 'circle' && selectedOperation == 'Area'; ">
+        <app-circle-area></app-circle-area>
+      </div>
+
+      
+
+      <!-- Triangle -->
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperation == 'Area';">
         <app-triangle></app-triangle>
       </div>

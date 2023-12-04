@@ -5,7 +5,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
-  
   selector: 'app-rectangle',
   templateUrl: './rectangle.component.html',
   styleUrls: ['./rectangle.component.css']
@@ -189,7 +188,11 @@ ConversionRectangle(){
 }
 
  RectangleCalculus(){
- console.log("Submited")
+  /*
+ console.log(this.length.value
+  )
+ console.log(this.width.value)
+ */
 }
 
 

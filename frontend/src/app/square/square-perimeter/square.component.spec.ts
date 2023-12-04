@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+/*import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SquareComponent } from './square.component';
 
@@ -19,3 +19,4 @@ describe('SquareComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

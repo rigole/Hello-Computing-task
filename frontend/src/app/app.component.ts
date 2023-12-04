@@ -727,13 +727,13 @@ selectedOperations = oprations
  
   OpenSelect(event:any){
     this.selectedFigure = event.target.value;
-    console.log(this.selectedFigure)
+   
     
   }
 
   OpenSelectOperation(event:any){
     this.selectedOperation= event.target.value ;
-    console.log(this.selectedOperation)
+    
   }
 
 }

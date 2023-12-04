@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms'
 
 @Component({
-  selector: 'app-square',
+  selector: 'app-square-perimeter',
   templateUrl: './square.component.html',
   styleUrls: ['./square.component.css']
 })
