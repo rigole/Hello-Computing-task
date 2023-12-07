@@ -1,17 +1,18 @@
 
-<form [formGroup]="rectangleForm" (ngSubmit)="RectangleCalculusPerimeter()">
+<form [formGroup]="rectangleForm" >
     <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
     <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
     <button 
       class="calculation-button" 
-      type="submit" 
+      type="button" 
       mat-raised-button 
       color="primary"
+      (click)="RectangleCalculusPerimeter()"
       [disabled]="rectangleForm.invalid || inSubmission"
      >
       Calculate
     </button>
-    <h2 [hidden]="" id="convertedRectangleValue" >{{ RectangleCalculusPerimeter() }}</h2>
+    <h2 [hidden]="isHidden" id="convertedRectangleValue" >{{ RectangleCalculusPerimeter() }}</h2>
    </form>
   
   

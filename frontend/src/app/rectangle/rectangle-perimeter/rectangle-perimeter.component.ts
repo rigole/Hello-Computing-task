@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RectanglePerimeterComponent {
 
   inSubmission = false
-  visibleAnswer = false
+  isHidden = false
 
   length = new FormControl<number | null>(null, [
     Validators.required,
@@ -36,16 +36,22 @@ export class RectanglePerimeterComponent {
   const rectangleForm = this.rectangleForm.value;
   const length = Number(rectangleForm.length);
   const width = Number(rectangleForm.width);
+  this.isHidden = !this.isHidden;
 
+  if (width > length){
+    return "width cannot be greater than length";
+  }
+  else{
+    const perimeter = ( length + width) * 2;
+    return perimeter;
+  }
 
-  const perimeter = ( length + width) * 2;
-  return perimeter;
 
   
   }
 
   ConversionRectanglePerimeter(){
-    let perimeter = 1
+    
     
   }
 

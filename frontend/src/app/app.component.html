@@ -5,7 +5,7 @@
     <p>What do you want to Calculate?</p>
   
       <!-- operations-->
-      <select id="operatins" #operatins [value]="selectedOperation" (change)="OpenSelectOperation($event)">
+      <select id="operatins" #operatins [value]="" (change)="OpenSelectOperation($event)">
         <option *ngFor="let operation of selectedOperations" [value]="operation.name">
           {{ operation.name }}
         </option>
@@ -14,7 +14,7 @@
     <p> Now Choose your figure</p>
     
        <!-- figures--> 
-      <select [value] = "selectedFigure" (change) = "OpenSelect($event)"> 
+      <select [value] = "" (change) = "OpenSelect($event)"> 
         <option *ngFor="let figure of figures" [value]="figure.name">
             {{ figure.name }}
         </option>

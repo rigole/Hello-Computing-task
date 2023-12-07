@@ -32,12 +32,12 @@ export class RectangleComponent  {
 
 
 
-  rectangleForm = new FormGroup({
+  rectangleFormArea = new FormGroup({
     length: this.length,
     width: this.width
   })
 
-  
+  /*
   selectedOperations = oprations
   selectedOperation = oprations[1];
   selectedUnit:string;
@@ -45,26 +45,34 @@ export class RectangleComponent  {
   selectedFigure:string;
   selectedAreaUnit: string;
   selectedAreaUnit2: string;
-  
+  */
   constructor(private apiservice: ApiServiceService){
-    
+    /*
     this.selectedUnit = "meter";
     this.selectedUnit2 = "decimeter";
     this.selectedFigure = "rectangle"
     this.selectedAreaUnit = "meter square"
     this.selectedAreaUnit2 = "decimeter square"
-  
+  */
   }
-  ngOnInit(): void {
-   
+  ConversionRectangle(){}
+  RectangleCalculus(){
+    const rectangleForm = this.rectangleFormArea.value;
+    const length = Number(rectangleForm.length);
+    const width = Number(rectangleForm.width);
+    //this.isHidden = !this.isHidden;
+
+
+    const area =  length * width ;
+    return area;
   }
 
+}
   
-  
+
 
 //Conversion on Rectangle Operations 
 
-ConversionRectangle(){
   /*
   const rectangleNumber = Number(this.RectangleCalculus()) ;
   const convertedRectangleValue = <HTMLInputElement>document.getElementById("convertedRectangleValue");
@@ -185,17 +193,8 @@ ConversionRectangle(){
 
   }
 */
-}
-
- RectangleCalculus(){
-  /*
- console.log(this.length.value
-  )
- console.log(this.width.value)
- */
-}
 
 
+ 
 
 
-}

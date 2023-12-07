@@ -1,4 +1,4 @@
-import { Component, ViewChild,ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from 'src/services';
 import oprations from 'src/operations';
 
@@ -24,19 +24,7 @@ export class AppComponent implements OnInit{
   selectedFigure:string;
   selectedAreaUnit: string;
   selectedAreaUnit2: string;
-   /*
-  length: string;
-  width:string;
-  side: string;
-  radius: string;
-  base: string;
-  height: string;
-  firstSide: string;
-  secondSide: string;
-  thirdSide : string;
-  rectangleResponse: string;
-  rectangleValue:string;
- */
+  
 
 
   
@@ -45,10 +33,10 @@ export class AppComponent implements OnInit{
    
     this.selectedUnit = "meter";
     this.selectedUnit2 = "decimeter";
-    this.selectedFigure = "rectangle"
+    this.selectedFigure = ""
     this.selectedAreaUnit = "meter square"
     this.selectedAreaUnit2 = "decimeter square"
-    this.selectedOperation = "Perimeter"
+    this.selectedOperation = ""
     /*
     this.length = "";
     this.width = "";

@@ -1,5 +1,5 @@
 
- <form [formGroup]="rectangleForm" (ngSubmit)="RectangleCalculus()">
+ <form [formGroup]="rectangleFormArea" (ngSubmit)="RectangleCalculus()">
   <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
   <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
   <button 
@@ -7,22 +7,26 @@
     type="submit" 
     mat-raised-button 
     color="primary"
-    [disabled]="rectangleForm.invalid || inSubmission"
+    [disabled]="rectangleFormArea.invalid || inSubmission"
    >
     Calculate
   </button>
- </form>
-
+  
+ 
+ <h2 id="">{{ RectangleCalculus() }}</h2>
+ <button class="calculation-button" mat-raised-button color="primary" (click) = "RectangleCalculus()">Convert</button>
 
 
   
- <!--  <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br> -->
+ <!--  <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br> 
   <h2>If you want to convert the answer into an other unit, Choose it </h2>
   <div class="convertUnit" *ngIf="selectedOperation.name == 'Perimeter';">
     <div>
       <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
       </mat-icon>
     </div>
+
+    -->
     <!--
        <mat-form-field>
       <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
@@ -32,11 +36,13 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-     -->
+     
    
   </div>
-  <div class="convertUnitArea" *ngIf="selectedOperation.name == 'Area';">
+  -->
+  
     <!--
+      <div class="convertUnitArea" *ngIf="selectedOperation.name == 'Area';">
        <mat-form-field >
       <mat-select  (value)="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
         <mat-label></mat-label>
@@ -54,8 +60,7 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    -->
-   
   </div>
-  <button class="calculation-button" mat-raised-button color="primary" (click) = "ConversionRectangle()">Convert</button>
-  <h2 id=""></h2>
+
+  -->
+  
