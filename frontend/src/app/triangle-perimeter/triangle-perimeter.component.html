@@ -1,5 +1,5 @@
 
-        <form [formGroup]="trianglePerimeterForm" (ngSubmit)="TrianglePerimeterCalculus()">
+        <form [formGroup]="trianglePerimeterForm">
             <app-input [control]="firstSide" type="number" placeholder="Enter value for the first side"></app-input>
             <app-input [control]="secondSide" type="number" placeholder="Enter value for the second side"></app-input>
             <app-input [control]="thirdSide" type="number" placeholder="Enter value for the third side"></app-input>
@@ -8,20 +8,22 @@
               type="button" 
               mat-raised-button 
               color="primary" 
-              [disabled]="trianglePerimeterForm.invalid || inSubmission"
+              onclick="TrianglePerimeterCalculus()"
+              [disabled]="trianglePerimeterForm.invalid || onClickCalculus"
             >
             Calculate
           </button>
         </form>
 
     
-      <h3 id="trianglePerimeter">{{ TrianglePerimeterCalculus() }}</h3>
+      <h3 [hidden]="isHidden" id="trianglePerimeter">{{ TrianglePerimeterCalculus() }}</h3>
    
 
-    <p>If you want to convert the answer into an other unit, Choose it </p>
+   
+        <!-- 
+           <p>If you want to convert the answer into an other unit, Choose it </p>
     <div class="input-div">
       <div class="input-convert">
-        <!-- 
         <mat-form-field >
           <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
             <mat-label></mat-label>
@@ -39,8 +41,10 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+        </div>
+        </div>
         -->
-      </div>
+      
       <button class="calculation-button" mat-raised-button color="primary" (click) = "convertTrianglePerimeter()">Convert</button>
       <h2 id="convertedTrianglePerimeter">{{  convertTrianglePerimeter() }}</h2>
-    </div>
+    

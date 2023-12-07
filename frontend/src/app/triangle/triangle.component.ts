@@ -8,7 +8,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class TriangleComponent {
 
-  inSubmission = false
+  onClickCalculus = false
+  isHidden = true
 
   
   height = new FormControl<number | null>(null, [
@@ -25,72 +26,22 @@ export class TriangleComponent {
 
   
 
-  triangleForm = new FormGroup({
+  triangleAreaForm = new FormGroup({
     height: this.height,
     base: this.base,
   })
 
   TriangleAreaCalculus(){
-   /*
-    this.base = (<HTMLInputElement>document.getElementById("base")).value;
-    this.height = (<HTMLInputElement>document.getElementById("height")).value;
-    const triangleArea =  <HTMLInputElement>document.getElementById("triangleArea");
-    const baseNumber = Number(this.base);
-    const heightNumber = Number(this.height);
+    const triangleAreaForm = this.triangleAreaForm.value
+    const base = Number(triangleAreaForm.base)
+    const height = Number(triangleAreaForm.height)
+    this.isHidden = !this.isHidden;
+    return (base * height)/2
    
-
-    if(this.base == "" || this.height =="" || isNaN(baseNumber) || isNaN(heightNumber)){
-      triangleArea.style.fontFamily = "Comfortaa";
-      triangleArea.style.color = "red";
-      return "please insert a number for base and a number for height";
-   } else {
-          if(baseNumber == 0 || heightNumber == 0 || baseNumber < 0 || heightNumber < 0){
-            triangleArea.style.fontFamily = "Comfortaa";
-            triangleArea.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            triangleArea.style.fontFamily = "Comfortaa";
-            triangleArea.style.color = "green";
-            return baseNumber * heightNumber;
-          }          
-      }  
-
-      */
   }
 
-   //Triangle Perimeters Operations
-  
-  TrianglePerimeterCalculus(){
-    /*
-    this.firstSide = (<HTMLInputElement>document.getElementById("firstside")).value;
-    this.secondSide = (<HTMLInputElement>document.getElementById("secondside")).value;
-    this.thirdSide= (<HTMLInputElement>document.getElementById("thirdside")).value;
-    const trianglePerimeter = <HTMLInputElement>document.getElementById("trianglePerimeter");
-    const firstSideNumber = Number( this.firstSide);
-    const secondSideNumber = Number(this.secondSide);
-    const thirdSideNumber = Number(this.thirdSide);
-    trianglePerimeter.style.fontFamily = "Comfortaa";
-
-    if(this.firstSide == "" ||  this.secondSide =="" || this.thirdSide=="" || isNaN(firstSideNumber) || isNaN(secondSideNumber) || isNaN(thirdSideNumber)){
-      trianglePerimeter.style.fontFamily = "Comfortaa";
-      trianglePerimeter.style.color = "red";
-      return "please insert a number for each side";
-   } else {
-          if(firstSideNumber == 0 || secondSideNumber == 0 || thirdSideNumber == 0  ||  firstSideNumber < 0 || secondSideNumber < 0 || thirdSideNumber < 0){
-            trianglePerimeter.style.fontFamily = "Comfortaa";
-            trianglePerimeter.style.color = "red";
-            return " A side cannot be negative or equal to 0";
-          }
-          else{
-            trianglePerimeter.style.fontFamily = "Comfortaa";
-            trianglePerimeter.style.color = "green";
-            return firstSideNumber + secondSideNumber + thirdSideNumber;
-          }          
-      } 
-      */ 
-  }
-
+   
+ 
   convertTriangleArea(){
    /*
     const TriangleAreaNumber = Number(this. TriangleAreaCalculus()) ;

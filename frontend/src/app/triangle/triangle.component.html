@@ -2,21 +2,22 @@
         
 
         
-          <form [formGroup]="triangleForm" (ngSubmit)="TriangleAreaCalculus()">
+          <form [formGroup]="triangleAreaForm" >
             <app-input [control]="height" type="number" placeholder="enter a value for the height" ></app-input>
             <app-input [control]="base" type="number" placeholder="enter a value for the base" ></app-input>
             <button 
               class="calculation-button" 
-              type="submit" 
+              type="button" 
               mat-raised-button 
+              onclick="TriangleAreaCalculus()"
               color="primary"
-              [disabled]="triangleForm.invalid || inSubmission" 
+              [disabled]="triangleAreaForm.invalid || onClickCalculus" 
             >
             Calculate
           </button>
           </form>
          
-          <h3 id="triangleArea">{{ TriangleAreaCalculus() }}</h3>
+          <h3 [hidden]="isHidden" id="triangleArea">{{ TriangleAreaCalculus() }}</h3>
   
        <!--
         <p>If you want to convert the answer into an other unit, Choose it </p>

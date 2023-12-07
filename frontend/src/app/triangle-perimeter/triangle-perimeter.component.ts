@@ -9,7 +9,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class TrianglePerimeterComponent {
 
 
-  inSubmission = false
+  onClickCalculus = false
+  isHidden = true
 
   firstSide = new FormControl<number | null>(null, [
     Validators.required,
@@ -37,7 +38,19 @@ export class TrianglePerimeterComponent {
   })
 
 
-  TrianglePerimeterCalculus(){}
+  TrianglePerimeterCalculus(){
+    const trianglePerimeterForm =  this.trianglePerimeterForm.value
+    const firstSide = Number(trianglePerimeterForm.firstSide)
+    const secondSide = Number(trianglePerimeterForm.secondSide) 
+    const thirdSide = Number(trianglePerimeterForm.thirdSide) 
+    this.isHidden = !this.isHidden;
+    return firstSide + secondSide + thirdSide;
+
+
+
+
+
+  }
 
   convertTrianglePerimeter(){}
 
