@@ -12,10 +12,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 export class RectangleComponent  {
-  figures:any;
-  units:any;
-  unitsArea:any;
-
+  isHidden = false
   inSubmission = false
 
   length = new FormControl<number | null>(null, [
@@ -37,30 +34,13 @@ export class RectangleComponent  {
     width: this.width
   })
 
-  /*
-  selectedOperations = oprations
-  selectedOperation = oprations[1];
-  selectedUnit:string;
-  selectedUnit2:string;
-  selectedFigure:string;
-  selectedAreaUnit: string;
-  selectedAreaUnit2: string;
-  */
-  constructor(private apiservice: ApiServiceService){
-    /*
-    this.selectedUnit = "meter";
-    this.selectedUnit2 = "decimeter";
-    this.selectedFigure = "rectangle"
-    this.selectedAreaUnit = "meter square"
-    this.selectedAreaUnit2 = "decimeter square"
-  */
-  }
+  constructor(){}
   ConversionRectangle(){}
   RectangleCalculus(){
     const rectangleForm = this.rectangleFormArea.value;
     const length = Number(rectangleForm.length);
     const width = Number(rectangleForm.width);
-    //this.isHidden = !this.isHidden;
+    this.isHidden = !this.isHidden;
 
 
     const area =  length * width ;

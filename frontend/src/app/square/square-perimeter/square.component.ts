@@ -8,14 +8,17 @@ import { FormGroup, FormControl,Validators } from '@angular/forms'
 })
 export class SquareComponent {
 
-  inSubmission = false
+  onClickCalculus = false
+  isHidden = true
+
+
   side = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(0),
     Validators.max(9999)
   ])
 
-  squareForm = new FormGroup({
+  squarePerimeterForm = new FormGroup({
     side: this.side,
     
   })
@@ -144,6 +147,12 @@ export class SquareComponent {
 
   //Square  Operations(Area and Perimeters)
   SquareCalculus(){
+
+    const squarePerimeterForm = this.squarePerimeterForm.value;
+    const side = Number(squarePerimeterForm.side)
+    this.isHidden = !this.isHidden;
+    return side * 4;
+
     //this.inSubmision = true
     /*
     this.side = (<HTMLInputElement>document.getElementById("side")).value;

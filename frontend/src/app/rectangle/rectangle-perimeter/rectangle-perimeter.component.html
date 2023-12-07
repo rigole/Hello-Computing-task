@@ -7,13 +7,15 @@
       type="button" 
       mat-raised-button 
       color="primary"
-      (click)="RectangleCalculusPerimeter()"
+      onclick="RectangleCalculusPerimeter()"
       [disabled]="rectangleForm.invalid || inSubmission"
      >
       Calculate
     </button>
-    <h2 [hidden]="isHidden" id="convertedRectangleValue" >{{ RectangleCalculusPerimeter() }}</h2>
+   
    </form>
+
+   <h2 [hidden]="isHidden">{{ RectangleCalculusPerimeter() }}</h2>
   
   
   

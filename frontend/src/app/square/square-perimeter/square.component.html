@@ -1,18 +1,19 @@
 
-<form [formGroup]="squareForm" (ngSubmit)="SquareCalculus()">
+<form [formGroup]="squarePerimeterForm">
     <app-input [control]="side" type="number"  placeholder="enter a value for the side"></app-input>
     <button 
         class="calculation-button"
-        type="submit" 
+        type="button" 
         mat-raised-button color="primary"  
-        [disabled]="squareForm.invalid || inSubmission"
+        [disabled]="squarePerimeterForm.invalid || onClickCalculus"
+        onclick="SquareCalculus()"
         >
       Calculate
     </button>
 </form>
     
    
-    <h3 id="squareValue">{{ SquareCalculus() }}</h3>
+    <h3 [hidden]="isHidden" id="squareValue">{{ SquareCalculus() }}</h3>
 
 
  <!--

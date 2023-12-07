@@ -36,7 +36,7 @@ export class RectanglePerimeterComponent {
   const rectangleForm = this.rectangleForm.value;
   const length = Number(rectangleForm.length);
   const width = Number(rectangleForm.width);
-  this.isHidden = !this.isHidden;
+   this.isHidden = !this.isHidden;
 
   if (width > length){
     return "width cannot be greater than length";

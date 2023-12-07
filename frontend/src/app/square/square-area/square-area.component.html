@@ -1,1 +1,14 @@
-<p>square-area works!</p>
+<form [formGroup]="squareAreaForm">
+    <app-input [control]="side" type="number"  placeholder="enter a value for the side"></app-input>
+    <button 
+        class="calculation-button"
+        type="button" 
+        mat-raised-button color="primary"  
+        [disabled]="squareAreaForm.invalid || onClickCalculus"
+        onclick="SquareAreaCalculus()"
+        >
+      Calculate
+    </button>
+</form>
+
+<h2 [hidden]="isHidden">{{  SquareAreaCalculus() }}</h2>

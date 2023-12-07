@@ -1,20 +1,21 @@
 
- <form [formGroup]="rectangleFormArea" (ngSubmit)="RectangleCalculus()">
+ <form [formGroup]="rectangleFormArea">
   <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
   <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
   <button 
     class="calculation-button" 
-    type="submit" 
+    type="button" 
     mat-raised-button 
     color="primary"
+    onclick="RectangleCalculus()"
     [disabled]="rectangleFormArea.invalid || inSubmission"
    >
     Calculate
   </button>
   
  
- <h2 id="">{{ RectangleCalculus() }}</h2>
- <button class="calculation-button" mat-raised-button color="primary" (click) = "RectangleCalculus()">Convert</button>
+ <h2 [hidden]="isHidden" id="">{{ RectangleCalculus() }}</h2>
+ <button  class="calculation-button" mat-raised-button color="primary" (click) = "RectangleCalculus()">Convert</button>
 
 
   
