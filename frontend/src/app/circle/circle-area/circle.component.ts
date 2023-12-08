@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CircleComponent {
 
-
+  isHidden = false
   inSubmission = false
   radius = new FormControl<number | null>(null, [
     Validators.required,
@@ -16,13 +16,18 @@ export class CircleComponent {
     Validators.max(9999)
   ])
 
-  circleForm = new FormGroup({
+  circleAreaForm = new FormGroup({
     radius: this.radius,
     
   })
 
 
-  CircleCalculus(){}
+  CircleCalculus(){
+    const circleAreaForm = this.circleAreaForm.value
+    const radius = Number(circleAreaForm.radius)
+    this.isHidden = !this.isHidden;
+    return radius * radius * Math.PI;
+  }
 
   ConversionCircle(){}
   

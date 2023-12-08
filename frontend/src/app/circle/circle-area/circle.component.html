@@ -1,17 +1,18 @@
 
 
-<form [formGroup]="circleForm" (ngSubmit)="ConversionCircle()">
+<form [formGroup]="circleAreaForm">
     <app-input [control]="radius" type="number" placeholder="enter a value for the radius"></app-input>
     <button 
       class="calculation-button" 
       mat-raised-button color="primary"
-      type="submit"
-      [disabled]="circleForm.invalid || inSubmission"
+      type="button"
+      onclick="CircleCalculus()"
+      [disabled]="circleAreaForm.invalid || inSubmission"
     >
-    Convert
+    Calculate
   </button>
 </form>
-<h2 id="convertedCircleValue">{{  ConversionCircle() }}</h2>
+<h3 [hidden]="isHidden" id="convertedCircleValue">{{  CircleCalculus() }}</h3>
 <!-- 
     <div class="input-div">
       <mat-form-field class="input-user" >

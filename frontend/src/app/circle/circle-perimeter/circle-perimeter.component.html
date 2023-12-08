@@ -1,1 +1,13 @@
-<p>circle-perimeter works!</p>
+<form [formGroup]="circlePerimeterForm">
+    <app-input [control]="radius" type="number" placeholder="enter a value for the radius"></app-input>
+    <button 
+      class="calculation-button" 
+      mat-raised-button color="primary"
+      type="button"
+      onclick="CirclePerimeterCalculus()"
+      [disabled]="circlePerimeterForm.invalid || inSubmission"
+    >
+    Calculate
+  </button>
+</form>
+<h3 [hidden]="isHidden" id="convertedCircleValue">{{  CirclePerimeterCalculus() }}</h3>
