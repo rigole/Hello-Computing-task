@@ -5,20 +5,32 @@
     <p>What do you want to Calculate?</p>
   
       <!-- operations-->
-      <select id="operatins" #operatins [value]="" (change)="OpenSelectOperation($event)">
-        <option *ngFor="let operation of selectedOperations" [value]="operation.name">
-          {{ operation.name }}
-        </option>
-      </select>
+      <div class="container">
+        <div class="select">
+          <select id="operatins" #operatins [value]="" (change)="OpenSelectOperation($event)">
+            <option *ngFor="let operation of selectedOperations" [value]="operation.name">
+              {{ operation.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    
 
     <p> Now Choose your figure</p>
     
        <!-- figures--> 
-      <select [value] = "" (change) = "OpenSelect($event)"> 
-        <option *ngFor="let figure of figures" [value]="figure.name">
-            {{ figure.name }}
-        </option>
-      </select>
+
+      <div class="container">
+        <div class="select">
+          <select [value] = "" (change) = "OpenSelect($event)"> 
+            <option *ngFor="let figure of figures" [value]="figure.name">
+                {{ figure.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      
    
     <div class="entryNumber">
 

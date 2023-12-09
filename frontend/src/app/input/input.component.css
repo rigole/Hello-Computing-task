@@ -3,6 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+   
 }
 
 
@@ -16,8 +17,21 @@
     margin: 1rem;
     width: 500px;
     height: 30px;
+    background-color: #34495e;
+    color: #fff;
+  
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-user::after{
+    content: '';
+    color: #34495e;
+}
 .mistake{
     color: red;
 }

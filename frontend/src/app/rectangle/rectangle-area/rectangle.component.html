@@ -1,24 +1,39 @@
 
- <form [formGroup]="rectangleFormArea">
-  <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
-  <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
-  <button 
-    class="calculation-button" 
-    type="button" 
-    mat-raised-button 
-    color="primary"
-    onclick="RectangleCalculus()"
-    [disabled]="rectangleFormArea.invalid || inSubmission"
-   >
-    Calculate
-  </button>
+  <form [formGroup]="rectangleFormArea">
+    <app-input [control]="length" type="number" placeholder="enter a value for the length" ></app-input>
+    <app-input [control]="width" type="number"  placeholder="enter a value for the width" ></app-input>
+    <button 
+      class="calculation-button" 
+      type="button" 
+      mat-raised-button 
+      color="primary"
+      onclick="RectangleCalculus()"
+      [disabled]="rectangleFormArea.invalid || inSubmission"
+      name="calculrect"
+    >
+      Calculate
+    </button>
+  </form>
   
+  <div [hidden]="isHidden" id="">
+    <h2 >{{ RectangleCalculus() }}</h2>
+    <button  
+      class="calculation-button" 
+      mat-raised-button 
+      color="primary" 
+      (click) = " ConversionRectangle()"
+      >
+      Convert
+    </button>
+  </div>
  
- <h2 [hidden]="isHidden" id="">{{ RectangleCalculus() }}</h2>
- <button  class="calculation-button" mat-raised-button color="primary" (click) = "RectangleCalculus()">Convert</button>
+ 
 
 
   
+
+
+
  <!--  <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br> 
   <h2>If you want to convert the answer into an other unit, Choose it </h2>
   <div class="convertUnit" *ngIf="selectedOperation.name == 'Perimeter';">

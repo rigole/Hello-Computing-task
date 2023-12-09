@@ -37,19 +37,7 @@ export class AppComponent implements OnInit{
     this.selectedAreaUnit = "meter square"
     this.selectedAreaUnit2 = "decimeter square"
     this.selectedOperation = ""
-    /*
-    this.length = "";
-    this.width = "";
-    this.side = "";
-    this.radius = "";
-    this.base = "";
-    this.height = "";
-    this.firstSide = "";
-    this.secondSide = "";
-    this.thirdSide = "";
-    this.rectangleValue = "";
-    this.rectangleResponse = "";
-    */
+
   }
  
   ngOnInit(): void {
@@ -78,9 +66,6 @@ selectedOperations = oprations
   OpenSel(event:any){
     this.selectedUnit = event.value;
   }
-
-
-
 
   OpenSe(event:any){
     this.selectedUnit2 = event.value;
@@ -581,137 +566,8 @@ selectedOperations = oprations
   /*
   Conversion(){}
   submission(event:any){}*/
-  //Triangle Perimeters Operations
-  /*
-  TrianglePerimeterCalculus(){
-    this.firstSide = (<HTMLInputElement>document.getElementById("firstside")).value;
-    this.secondSide = (<HTMLInputElement>document.getElementById("secondside")).value;
-    this.thirdSide= (<HTMLInputElement>document.getElementById("thirdside")).value;
-    const trianglePerimeter = <HTMLInputElement>document.getElementById("trianglePerimeter");
-    const firstSideNumber = Number( this.firstSide);
-    const secondSideNumber = Number(this.secondSide);
-    const thirdSideNumber = Number(this.thirdSide);
-    trianglePerimeter.style.fontFamily = "Comfortaa";
-
-    if(this.firstSide == "" ||  this.secondSide =="" || this.thirdSide=="" || isNaN(firstSideNumber) || isNaN(secondSideNumber) || isNaN(thirdSideNumber)){
-      trianglePerimeter.style.fontFamily = "Comfortaa";
-      trianglePerimeter.style.color = "red";
-      return "please insert a number for each side";
-   } else {
-          if(firstSideNumber == 0 || secondSideNumber == 0 || thirdSideNumber == 0  ||  firstSideNumber < 0 || secondSideNumber < 0 || thirdSideNumber < 0){
-            trianglePerimeter.style.fontFamily = "Comfortaa";
-            trianglePerimeter.style.color = "red";
-            return " A side cannot be negative or equal to 0";
-          }
-          else{
-            trianglePerimeter.style.fontFamily = "Comfortaa";
-            trianglePerimeter.style.color = "green";
-            return firstSideNumber + secondSideNumber + thirdSideNumber;
-          }          
-      }  
-  }
-
-  */
-  //Triangle Area Operations
-  /*
-  TriangleAreaCalculus(){
-    this.base = (<HTMLInputElement>document.getElementById("base")).value;
-    this.height = (<HTMLInputElement>document.getElementById("height")).value;
-    const triangleArea =  <HTMLInputElement>document.getElementById("triangleArea");
-    const baseNumber = Number(this.base);
-    const heightNumber = Number(this.height);
-   
-
-    if(this.base == "" || this.height =="" || isNaN(baseNumber) || isNaN(heightNumber)){
-      triangleArea.style.fontFamily = "Comfortaa";
-      triangleArea.style.color = "red";
-      return "please insert a number for base and a number for height";
-   } else {
-          if(baseNumber == 0 || heightNumber == 0 || baseNumber < 0 || heightNumber < 0){
-            triangleArea.style.fontFamily = "Comfortaa";
-            triangleArea.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            triangleArea.style.fontFamily = "Comfortaa";
-            triangleArea.style.color = "green";
-            return baseNumber * heightNumber;
-          }          
-      }  
-  }
-*/
-/*
-  //Circles  Operations(Area and Perimeters)
-  CircleCalculus(){
-    this.radius = (<HTMLInputElement>document.getElementById("radius")).value;
-    const circleSquare = <HTMLInputElement>document.getElementById("circleSquare")
-    const radiusNumber = Number(this.radius);
-    if (this.radius == "" || isNaN(radiusNumber)) {
-      circleSquare.style.fontFamily = "Comfortaa";
-      circleSquare.style.color = "red";
-      return "Please insert a number for side"
-    } else {
-        if (this.selectedOperation.name == "Area") {
-          if (radiusNumber == 0 || radiusNumber < 0) {
-            circleSquare.style.fontFamily = "Comfortaa";
-            circleSquare.style.color = "red";
-            return " the side cannot be negative or equal to 0";
-          } else {
-            circleSquare.style.fontFamily = "Comfortaa";
-            circleSquare.style.color = "green";
-            return (2 * radiusNumber * Math.PI);
-          }
-        } else {
-          if(radiusNumber == 0 || radiusNumber < 0){
-            circleSquare.style.fontFamily = "Comfortaa";
-            circleSquare.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            circleSquare.style.fontFamily = "Comfortaa";
-            circleSquare.style.color = "green";
-            return (radiusNumber * radiusNumber * Math.PI);
-          }
-        }
-    }
-  }
-  */
- /*
-//Square  Operations(Area and Perimeters)
-  SquareCalculus(){
-    this.side = (<HTMLInputElement>document.getElementById("side")).value;
-    const squareValue = <HTMLInputElement>document.getElementById("squareValue")
-    const sideNumber = Number(this.side);
-    if (this.side == "" || isNaN(sideNumber)) {
-      squareValue.style.fontFamily = "Comfortaa"
-      squareValue.style.color = "red";
-      return "Please insert a number for side"
-    } else {
-        if (this.selectedOperation.name == "Area") {
-          if (sideNumber == 0 || sideNumber < 0) {
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "red";
-            return " the side cannot be negative or equal to 0";
-          } else {
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "green";
-            return sideNumber * sideNumber;
-          }
-        } else {
-          if(sideNumber == 0 || sideNumber < 0){
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "green";
-            return sideNumber * 4;
-          }
-        }
-    }
-  }
-  */
+  
+ 
  
   OpenSelect(event:any){
     this.selectedFigure = event.target.value;

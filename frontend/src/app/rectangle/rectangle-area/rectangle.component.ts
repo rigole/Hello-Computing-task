@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiServiceService } from 'src/services';
-import oprations from 'src/operations';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
@@ -41,6 +39,7 @@ export class RectangleComponent  {
     const length = Number(rectangleForm.length);
     const width = Number(rectangleForm.width);
     this.isHidden = !this.isHidden;
+    
 
 
     const area =  length * width ;
@@ -49,6 +48,9 @@ export class RectangleComponent  {
 
 }
   
+
+
+
 
 
 //Conversion on Rectangle Operations 
