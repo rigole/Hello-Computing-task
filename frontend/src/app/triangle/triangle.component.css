@@ -1,0 +1,4 @@
+#triangleAreaForm{
+    display: flex;
+    flex-direction: column;
+}

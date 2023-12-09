@@ -1,0 +1,4 @@
+#squareAreaForm{
+    display: flex;
+    flex-direction: column;
+}

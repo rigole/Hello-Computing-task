@@ -1,0 +1,4 @@
+#squarePerimeterForm{
+    display: flex;
+    flex-direction: column;
+}

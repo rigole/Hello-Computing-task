@@ -1,0 +1,4 @@
+#rectangleForm{
+    display: flex;
+    flex-direction: column;
+}

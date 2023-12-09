@@ -22,16 +22,17 @@
   
 }
 
+.input-user::placeholder{
+    color: #fff;
+    font-family: 'Comfortaa';
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-.input-user::after{
-    content: '';
-    color: #34495e;
-}
 .mistake{
-    color: red;
+    color: #fff;
 }
