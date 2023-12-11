@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiServiceService } from 'src/services';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
@@ -9,9 +10,22 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 
 
-export class RectangleComponent  {
+export class RectangleComponent implements OnInit {
   isHidden = false
   inSubmission = false
+  unitsArea:any;
+  selectedAreaUnit: any;
+  selectedAreaUnit2: any;
+
+constructor(private apiservice: ApiServiceService){}
+
+  ngOnInit(): void {
+
+    this.apiservice.getAreaUnits().subscribe(res => {
+      this.unitsArea = res;
+    })
+      
+  }
 
   length = new FormControl<number | null>(null, [
     Validators.required,
@@ -32,7 +46,15 @@ export class RectangleComponent  {
     width: this.width
   })
 
-  constructor(){}
+  OpenSelectArea(event:any){
+    this.selectedAreaUnit = event.value
+  }
+
+  OpenSelectArea_(event:any){
+    this.selectedAreaUnit2 = event.value
+  }
+
+  
   ConversionRectangle(){}
   RectangleCalculus(){
     const rectangleForm = this.rectangleFormArea.value;

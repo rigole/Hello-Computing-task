@@ -4,16 +4,21 @@
     <button 
         class="calculation-button"
         type="button" 
-        mat-raised-button color="primary"  
+        mat-raised-button 
+        color="primary"  
         [disabled]="squarePerimeterForm.invalid || onClickCalculus"
         onclick="SquareCalculus()"
         >
       Calculate
     </button>
 </form>
+
+  <div [hidden]="isHidden">
+    <h3 id="squareValue">{{ SquareCalculus() }}</h3>
+  </div>
     
    
-    <h3 [hidden]="isHidden" id="squareValue">{{ SquareCalculus() }}</h3>
+    
 
 
  <!--

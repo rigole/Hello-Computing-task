@@ -152,41 +152,6 @@ export class SquareComponent {
     const side = Number(squarePerimeterForm.side)
     this.isHidden = !this.isHidden;
     return side * 4;
-
-    //this.inSubmision = true
-    /*
-    this.side = (<HTMLInputElement>document.getElementById("side")).value;
-    const squareValue = <HTMLInputElement>document.getElementById("squareValue")
-    const sideNumber = Number(this.side);
-    if (this.side == "" || isNaN(sideNumber)) {
-      squareValue.style.fontFamily = "Comfortaa"
-      squareValue.style.color = "red";
-      return "Please insert a number for side"
-    } else {
-        if (this.selectedOperation.name == "Area") {
-          if (sideNumber == 0 || sideNumber < 0) {
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "red";
-            return " the side cannot be negative or equal to 0";
-          } else {
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "green";
-            return sideNumber * sideNumber;
-          }
-        } else {
-          if(sideNumber == 0 || sideNumber < 0){
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "red";
-            return " the with and the length cannot be negative or equal to 0";
-          }
-          else{
-            squareValue.style.fontFamily = "Comfortaa"
-            squareValue.style.color = "green";
-            return sideNumber * 4;
-          }
-        }
-    }
-    */
   }
 
 }

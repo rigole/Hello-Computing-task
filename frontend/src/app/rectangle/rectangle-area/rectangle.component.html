@@ -17,21 +17,44 @@
   
   <div [hidden]="isHidden" id="">
     <h2 >{{ RectangleCalculus() }}</h2>
-    <button  
+   
+  </div>
+
+  <div class="select-container">
+    <div class="container">
+      <div class="select">
+        <select id=""  [value]="selectedAreaUnit" (change)="OpenSelectArea($event)">
+          <option *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+            {{ unitArea.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  
+  
+    <div class="container">
+      <div class="select">
+        <select id=""  [value]="selectedAreaUnit2" (change)="OpenSelectArea_($event)">
+          <option *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
+            {{ unitArea.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <button  
       class="calculation-button" 
       mat-raised-button 
       color="primary" 
-      (click) = " ConversionRectangle()"
-      >
-      Convert
-    </button>
-  </div>
- 
+      (click) = "ConversionRectangle()"
+    >
+    Convert
+  </button>
  
 
-
-  
-
+ 
 
 
  <!--  <h2 id="rectangleValue">{{RectangleCalculus()}}</h2><br> 

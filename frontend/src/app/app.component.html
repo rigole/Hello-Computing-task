@@ -37,18 +37,14 @@
       <!-- Rectangle -->
       <div *ngIf="selectedFigure == 'rectangle' && selectedOperation == 'Area'; ">
         <app-rectangle></app-rectangle>
-       </div>
+      </div>
 
       <div *ngIf="selectedFigure == 'rectangle' && selectedOperation == 'Perimeter'; ">
        <app-rectangle-perimeter></app-rectangle-perimeter>
       </div>
 
-      
-
-
        <!-- Square -->
-      
-       <div *ngIf="selectedFigure == 'square' && selectedOperation == 'Perimeter'; ">
+      <div *ngIf="selectedFigure == 'square' && selectedOperation == 'Perimeter'; ">
         <app-square-perimeter></app-square-perimeter>
       </div>
 
@@ -66,8 +62,6 @@
         <app-circle-area></app-circle-area>
       </div>
 
-      
-
       <!-- Triangle -->
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperation == 'Area';">
         <app-triangle></app-triangle>
@@ -77,7 +71,8 @@
         <app-triangle-perimeter></app-triangle-perimeter>
       </div>
 
-      
+
+    
 
       <!-- Triangle  Area
       <div *ngIf="selectedFigure == 'Triangle' && selectedOperation.name == 'Area';">
