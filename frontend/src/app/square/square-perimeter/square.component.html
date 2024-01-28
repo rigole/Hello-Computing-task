@@ -17,59 +17,6 @@
     <h3 id="squareValue">{{ SquareCalculus() }}</h3>
   </div>
     
-   
-    
-
-
- <!--
-
-    <div class="convertUnit" *ngIf="selectedOperation.name == 'Perimeter';">
-      
-         <mat-form-field  >
-        <mat-select #myUnits [(value)]="selectedUnit" (selectionChange) = "OpenSel($event)" >
-          <mat-label></mat-label>
-          <mat-option  *ngFor="let unit of units" [value]="unit.name">
-              {{unit.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div>
-        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
-        </mat-icon>
-      </div>
-      <mat-form-field >
-        <mat-select #myUnits [(value)]="selectedUnit2" (selectionChange) = "OpenSe($event)" >
-          <mat-label></mat-label>
-          <mat-option  *ngFor="let unit of units" [value]="unit.name">
-              {{unit.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-      -->
-       <!--
-    <div class="convertUnitArea" *ngIf="selectedOperation.name == 'Area';">
-       
-            <mat-form-field >
-            <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
-            <mat-label></mat-label>
-            <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
-                {{unitArea.name}}
-            </mat-option>
-            </mat-select>
-        </mat-form-field>
-        <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows"></mat-icon>
-        <mat-form-field >
-            <mat-select  [(value)]="selectedAreaUnit2" (selectionChange) =" OpenSelectArea_($event)" >
-            <mat-label></mat-label>
-            <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
-                {{unitArea.name}}
-            </mat-option>
-            </mat-select>
-        </mat-form-field>
-        </div>
-    -->
     <button class="calculation-button" mat-raised-button color="primary" (click) = "ConversionSquare()" >Convert</button>
     <h2 id="convertedSquareValue">{{  ConversionSquare() }}</h2>
 

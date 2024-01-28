@@ -14,8 +14,8 @@ export class RectangleComponent implements OnInit {
   isHidden = false
   inSubmission = false
   unitsArea:any;
-  selectedAreaUnit: any;
-  selectedAreaUnit2: any;
+  selectedAreaUnit: string = '';
+  selectedAreaUnit2: string = '';
 
 constructor(private apiservice: ApiServiceService){}
 
@@ -46,16 +46,24 @@ constructor(private apiservice: ApiServiceService){}
     width: this.width
   })
 
-  OpenSelectArea(event:any){
+  /*OpenSelectArea(event:any){
     this.selectedAreaUnit = event.value
+  }*/
+
+  /*OpenSelectArea_(event:any){
+    this.selectedAreaUnit2 = event.value
+  }*/
+
+  unitsArea1(){
+    console.log(this.selectedAreaUnit) 
   }
 
-  OpenSelectArea_(event:any){
-    this.selectedAreaUnit2 = event.value
+  unitsArea2(){
+    console.log(this.selectedAreaUnit2) 
   }
 
   
-  ConversionRectangle(){}
+
   RectangleCalculus(){
     const rectangleForm = this.rectangleFormArea.value;
     const length = Number(rectangleForm.length);
@@ -66,6 +74,11 @@ constructor(private apiservice: ApiServiceService){}
 
     const area =  length * width ;
     return area;
+  }
+
+  ConversionRectangle(){
+    //console.log("unit area 1 " + this.OpenSelectArea)
+    //console.log("unit area 2 " + this.OpenSelectArea_)
   }
 
 }

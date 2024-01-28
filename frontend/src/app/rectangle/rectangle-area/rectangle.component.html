@@ -23,7 +23,7 @@
   <div class="select-container">
     <div class="container">
       <div class="select">
-        <select id=""  [value]="selectedAreaUnit" (change)="OpenSelectArea($event)">
+        <select id="" [(ngModel)]="selectedAreaUnit" (change)="unitsArea1()">
           <option *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
             {{ unitArea.name }}
           </option>
@@ -31,10 +31,9 @@
       </div>
     </div>
   
-  
     <div class="container">
       <div class="select">
-        <select id=""  [value]="selectedAreaUnit2" (change)="OpenSelectArea_($event)">
+        <select id="" [(ngModel)]="selectedAreaUnit2" (change)="unitsArea2()">
           <option *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
             {{ unitArea.name }}
           </option>

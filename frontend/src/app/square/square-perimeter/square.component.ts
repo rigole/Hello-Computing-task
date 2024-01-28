@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms'
 
 @Component({
@@ -6,10 +6,15 @@ import { FormGroup, FormControl,Validators } from '@angular/forms'
   templateUrl: './square.component.html',
   styleUrls: ['./square.component.css']
 })
-export class SquareComponent {
+export class SquareComponent implements OnInit{
+  
 
   onClickCalculus = false
   isHidden = true
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
 
   side = new FormControl<number | null>(null, [
@@ -20,7 +25,6 @@ export class SquareComponent {
 
   squarePerimeterForm = new FormGroup({
     side: this.side,
-    
   })
 
    //Conversion on square Operations 
