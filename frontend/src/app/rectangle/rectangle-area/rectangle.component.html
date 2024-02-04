@@ -14,16 +14,15 @@
       Calculate
     </button>
   </form>
-  
-  <div [hidden]="isHidden" id="">
-    <h2 >{{ RectangleCalculus() }}</h2>
+ 
+    <h2  [hidden]="isHidden">{{ RectangleCalculus() }}</h2>
    
-  </div>
+ 
 
   <div class="select-container">
     <div class="container">
       <div class="select">
-        <select id="" [(ngModel)]="selectedAreaUnit" (change)="unitsArea1()">
+        <select id="" [(ngModel)]="selectedAreaUnit" >
           <option *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
             {{ unitArea.name }}
           </option>
@@ -33,7 +32,7 @@
   
     <div class="container">
       <div class="select">
-        <select id="" [(ngModel)]="selectedAreaUnit2" (change)="unitsArea2()">
+        <select id="" [(ngModel)]="selectedAreaUnit2" >
           <option *ngFor="let unitArea of unitsArea" [value]="unitArea.name">
             {{ unitArea.name }}
           </option>

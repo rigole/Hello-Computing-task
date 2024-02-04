@@ -54,31 +54,36 @@ constructor(private apiservice: ApiServiceService){}
     this.selectedAreaUnit2 = event.value
   }*/
 
-  unitsArea1(){
-    console.log(this.selectedAreaUnit) 
+ /* unitsArea1(){
+    return this.selectedAreaUnit
   }
 
   unitsArea2(){
-    console.log(this.selectedAreaUnit2) 
-  }
+    return this.selectedAreaUnit2
+  }*/
 
   
 
   RectangleCalculus(){
+    
     const rectangleForm = this.rectangleFormArea.value;
     const length = Number(rectangleForm.length);
     const width = Number(rectangleForm.width);
-    this.isHidden = !this.isHidden;
+    this.isHidden = false;
+    if (width > length) {
+      return "width cannot be greater than length";
+    } else {
+      const area =  length * width ;
+      return area;
+    }
+
+   
     
-
-
-    const area =  length * width ;
-    return area;
   }
 
   ConversionRectangle(){
-    //console.log("unit area 1 " + this.OpenSelectArea)
-    //console.log("unit area 2 " + this.OpenSelectArea_)
+    console.log("unit area 1 " + this.selectedAreaUnit)
+    console.log("unit area 2 " + this.selectedAreaUnit2)
   }
 
 }
