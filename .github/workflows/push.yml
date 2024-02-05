@@ -1,4 +1,4 @@
-name: Run Action
+name: Deploy Worflow
 on: push
 jobs:
   test:
@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Building project
-        run: "Echo building"
+        run: echo "building..."
       - name: Deploy
         run: echo "Deploying..."
 
