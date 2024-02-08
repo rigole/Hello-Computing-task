@@ -1,9 +1,10 @@
-const units  = require("./Model/units");
+/*const units  = require("./Model/units");
 const figures = require("./Model/figures");
-const areaUnits = require("./Model/areaUnits");
+const areaUnits = require("./Model/areaUnits");*/
 let express = require('express')
 const bodyParser = require("body-parser")
 const cors = require("cors")
+const db = require('./db')
 const app = express();
 const path = require('path')
 
@@ -23,16 +24,35 @@ app.listen(port, () => {
     console.log("Listening on port " + port)
 })
 
-app.get('/units', (req, res) => {
-  res.json(units);
+app.get('/api/units', async (req, res) => {
+  try {
+    const [rows] = await db.execute('SELECT * FROM units') 
+    res.json(rows)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({error: 'Interrnel Server Error'})
+  }
+  
 });
 
-app.get('/figures', (req, res) => {
-  res.json(figures);
+app.get('/api/figures', async (req, res) => {
+  try {
+    const [rows] = await db.execute('SELECT * FROM figures') 
+    res.json(rows)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({error: 'Interrnel Server Error'})
+  }
 });
 
-app.get('/areaunits', (req, res) => {
-  res.json(areaUnits);
+app.get('/api/areaunits', async(req, res) => {
+  try {
+    const [rows] = await db.execute('SELECT * FROM areaunits') 
+    res.json(rows)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({error: 'Interrnel Server Error'})
+  }
 });
 
 
