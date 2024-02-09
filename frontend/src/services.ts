@@ -1,5 +1,6 @@
 import {  HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -7,18 +8,20 @@ import { Injectable } from "@angular/core";
 
 // class for api calling
 export class ApiServiceService{
+
+    private urlBackend = 'http://localhost:8000'
     constructor(private http:HttpClient){}
 
-    getFigures(){
-        return this.http.get("http://localhost:8000/figures");
+    getFigures():Observable<any>{
+        return this.http.get(`${this.urlBackend}/api/figures`);
     }
     
-    getUnits(){
-        return this.http.get("http://localhost:8000/units");
+    getUnits():Observable<any>{
+        return this.http.get(`${this.urlBackend}/api/units`);
     }
 
-    getAreaUnits(){
-        return this.http.get("http://localhost:8000/areaunits");
+    getAreaUnits():Observable<any>{
+        return this.http.get(`${this.urlBackend}/api/areaunits`);
     }
 }
 
