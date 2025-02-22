@@ -10,6 +10,7 @@ import { Observable } from "rxjs";
 export class ApiServiceService{
 
     private urlBackend = 'http://localhost:8000'
+    
     constructor(private http:HttpClient){}
 
     getFigures():Observable<any>{
