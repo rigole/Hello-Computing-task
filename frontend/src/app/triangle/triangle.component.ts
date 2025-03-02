@@ -7,11 +7,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./triangle.component.css']
 })
 export class TriangleComponent {
-
   onClickCalculus = false
   isHidden = true
-
-  
   height = new FormControl<number | null>(null, [
     Validators.required,
     Validators.min(0),
@@ -35,14 +32,16 @@ export class TriangleComponent {
     const triangleAreaForm = this.triangleAreaForm.value
     const base = Number(triangleAreaForm.base)
     const height = Number(triangleAreaForm.height)
-    this.isHidden = !this.isHidden;
+    //this.isHidden = !this.isHidden;
     return (base * height)/2
    
   }
 
    
  
-  convertTriangleArea(){}
+  convertTriangleArea(){
+    const areaValue = this.TriangleAreaCalculus();
+  }
   
 
 }
