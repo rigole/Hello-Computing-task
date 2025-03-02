@@ -16,13 +16,10 @@ export class AppComponent implements OnInit{
   public title = 'frontend';
   public figures: Figure[] = [];
   public units: Unit[] = [];
-  public unitsArea:AreaUnits[] = [];
   public selectedOperation: string = "";
   public selectedUnit:string  = "meter";
   public selectedUnit2:string  = "decimeter";
   public selectedFigure:string = "";
-  public selectedAreaUnit: string = "meter square";
-  public selectedAreaUnit2: string = "decimeter square";
 
   
   constructor(private apiservice: ApiServiceService){}
@@ -36,10 +33,6 @@ export class AppComponent implements OnInit{
       this.units = unit;
     })
 
-    this.apiservice.getAreaUnits().subscribe(areaunit => {
-      this.unitsArea = areaunit;
-    })
-
   }
   
   selectedOperations = oprations
@@ -51,15 +44,6 @@ export class AppComponent implements OnInit{
   OpenSe(event:any){
     this.selectedUnit2 = event.value;
   }
-
-  OpenSelectArea(event:any){
-    this.selectedAreaUnit = event.value
-  }
-
-  OpenSelectArea_(event:any){
-    this.selectedAreaUnit2 = event.value
-  }
-  
   OpenSelect(event:any){
     this.selectedFigure = event.target.value;
   }

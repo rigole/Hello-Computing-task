@@ -21,7 +21,6 @@
     <p> Now Choose your figure</p>
     
        <!-- figures--> 
-
       <div class="container">
         <div class="select">
           <select [value] = "" (change) = "OpenSelect($event)"> 
@@ -72,10 +71,6 @@
 
       <div *ngIf="selectedFigure == 'triangle' && selectedOperation == 'Perimeter';">
         <app-triangle-perimeter></app-triangle-perimeter>
-      </div>
-
-      <div *ngIf="selectedFigure == 'triangle' && selectedOperation == 'Area'; ">
-        <app-triangle></app-triangle>
       </div>
     </div>
   </form>

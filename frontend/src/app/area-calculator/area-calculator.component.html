@@ -1,0 +1,31 @@
+<p>If you want to convert the answer into an other unit, Choose it </p>
+<div class="">
+  <div class="input-convert">
+    <mat-form-field >
+      <mat-select  [(value)]="selectedAreaUnit" (selectionChange) = "OpenSelectArea($event)" >
+        <mat-label></mat-label>
+        <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea">
+            {{unitArea}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div id="icon-div">
+      <mat-icon class="icon-convert" aria-hidden="false" aria-label="" fontIcon="compare_arrows">
+      </mat-icon>
+    </div>
+    <mat-form-field >
+      <mat-select  [(value)]="selectedAreaUnit2" (selectionChange) =" OpenSelectArea_($event)" >
+        <mat-label></mat-label>
+        <mat-option  *ngFor="let unitArea of unitsArea" [value]="unitArea">
+            {{unitArea}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+  
+
+      
+
+

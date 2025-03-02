@@ -19,6 +19,7 @@ import { TrianglePerimeterComponent } from './triangle-perimeter/triangle-perime
 import { RectanglePerimeterComponent } from './rectangle/rectangle-perimeter/rectangle-perimeter.component';
 import { SquareAreaComponent } from './square/square-area/square-area.component';
 import { CirclePerimeterComponent } from './circle/circle-perimeter/circle-perimeter.component';
+import { AreaCalculatorComponent } from './area-calculator/area-calculator.component';
 
 
 
@@ -37,6 +38,7 @@ import { CirclePerimeterComponent } from './circle/circle-perimeter/circle-perim
     RectanglePerimeterComponent,
     SquareAreaComponent,
     CirclePerimeterComponent,
+    AreaCalculatorComponent,
   ],
   imports: [
     BrowserModule,
